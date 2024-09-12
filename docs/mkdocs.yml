@@ -1,0 +1,10 @@
+site_name: POD|LCA Data Analysis
+# 
+site_author: University of Washington
+# 
+theme:
+  name: material
+  logo: assets/W-Logo_Purple_RGB.png
+  palette:
+    primary: deep purple
+
