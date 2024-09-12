@@ -2,7 +2,7 @@
 
 ## Description
 
-Data analysis in support of the POD|LCA Scenario Explorer.
+Data analysis in support of the POD|LCA Scenario Explorer. Much data processing is required before using the Scenario Explorer.
 
 ## Commands
 
