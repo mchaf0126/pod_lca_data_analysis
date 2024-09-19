@@ -1,0 +1,11 @@
+cols_to_drop:
+  - Revit design option
+  - Revit general category
+  - Thickness of material (m)
+  - Total instance count
+  - Cumulative material area (m2)
+  - Cumulative instance volume (m3)
+  - Cumulative instance area (m2)
+  - Cumulative instance length (m)
+  - Cumulative instance perimeter (m)
+  - Tally Entry Description

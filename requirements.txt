@@ -11,3 +11,4 @@ plotly
 dash
 nbformat
 mkdocs-material
+pyyaml
