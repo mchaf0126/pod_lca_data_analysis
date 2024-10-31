@@ -1,0 +1,3 @@
+﻿template_model,project_area,building_height,state,stories_above_grade,stories_below_grade
+tm_1,67500,75,Washington,5,0
+tm_2_dummy,80000,100,Pennsylvania,6,1
