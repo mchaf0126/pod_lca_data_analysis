@@ -5,7 +5,7 @@ import src.utils.general as gen
 
 
 @dataclass
-class TemplateModelExtractor():
+class TemplateModelExtractor:
     """Methods for extracting bill of materials from template model"""
     t_model_df: pd.DataFrame = None
 
