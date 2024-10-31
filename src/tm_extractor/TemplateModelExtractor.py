@@ -18,7 +18,7 @@ class TemplateModelExtractor:
         template_df = gen.read_csv(file_path)
         self.t_model_df = template_df
 
-    def create_bill_of_materials(self, cols_to_drop_list: list) -> None:
+    def create_bill_of_materials(self, cols_to_drop_list: list, template_model_name: str) -> None:
         """_summary_
 
         Args:
@@ -26,7 +26,7 @@ class TemplateModelExtractor:
         """
         template_df = self.t_model_df
 
-        template_df['Revit model'] = "Template_Model_1"
+        template_df['Revit model'] = template_model_name
 
         template_df['element_index'] = None
         for row_index in template_df.iterrows():

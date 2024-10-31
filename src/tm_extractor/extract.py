@@ -7,7 +7,7 @@ def create_bill_of_materials():
     """
     Implementation of TemplateModelExtractor for creation of bill of materials.
     """
-    main_directory = Path(__file__).parents[1]
+    main_directory = Path(__file__).parents[2]
     config_path = main_directory.joinpath('references/extract_config.yml')
 
     config = gen.read_yaml(config_path)
@@ -36,7 +36,8 @@ def create_bill_of_materials():
             file_path=raw_file_path[0]
         )
         Extractor.create_bill_of_materials(
-            cols_to_drop_list=cols_to_drop_list
+            cols_to_drop_list=cols_to_drop_list,
+            template_model_name=template_model
         )
         Extractor.write_bill_of_materials(
             bom_directory,
