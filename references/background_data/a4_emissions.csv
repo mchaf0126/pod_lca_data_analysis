@@ -1,0 +1,14 @@
+﻿Product system name,Acidification,Eutrophi- cation,Global warming,Ozone depletion,Smog formation,Reference Unit,Reference,Notes
+"Transport, aircraft, freight",5.04E-03,3.02E-04,1.249,8.18E-09,1.64E-01,1 tkm,M3.2 Table 3,
+"Transport, barge, average fuel mix",3.52E-04,1.73E-05,0.034,2.00E-10,9.61E-03,1 tkm,M3.2 Table 3,
+"Transport, train, diesel powered",3.74E-04,2.31E-05,0.022,1.35E-10,1.29E-02,1 tkm,M3.2 Table 3,
+"Transport, combination truck, average fuel mix",4.80E-04,2.80E-05,0.094,5.68E-10,1.54E-02,1 tkm,M3.2 Table 3,
+"Transport, ocean freighter, average fuel mix",3.65E-04,2.00E-05,0.019,1.11E-10,1.12E-02,1 tkm,M3.2 Table 3,
+"Transport, light commercial truck, diesel powered",7.77E-03,4.73E-04,0.889,5.92E-09,2.59E-01,1 tkm,M3.2 Table 3,More specific truck entries (do not implement these for now)
+"Transport, light commercial truck, gasoline powered",3.50E-03,2.08E-04,0.669,4.24E-09,1.15E-01,1 tkm,M3.2 Table 3,More specific truck entries (do not implement these for now)
+"Transport, single unit truck, diesel powered",1.08E-03,6.35E-05,0.202,1.22E-09,3.51E-02,1 tkm,M3.2 Table 3,More specific truck entries (do not implement these for now)
+"Transport, single unit truck, gasoline powered",7.37E-04,4.25E-05,0.16,1.04E-09,2.39E-02,1 tkm,M3.2 Table 3,More specific truck entries (do not implement these for now)
+"Transport, single unit truck, long-haul, diesel powered",2.85E-03,1.74E-04,0.389,2.62E-09,9.48E-02,1 tkm,M3.2 Table 3,More specific truck entries (do not implement these for now)
+"Transport, single unit truck, long-haul, gasoline powered",2.24E-03,1.34E-04,0.389,2.49E-09,7.38E-02,1 tkm,M3.2 Table 3,More specific truck entries (do not implement these for now)
+"Transport, single unit truck, short-haul, diesel powered",2.48E-03,1.50E-04,0.322,2.14E-09,8.17E-02,1 tkm,M3.2 Table 3,More specific truck entries (do not implement these for now)
+"Transport, single unit truck, short-haul, gasoline powered",1.92E-03,1.15E-04,0.316,2.01E-09,6.43E-02,1 tkm,M3.2 Table 3,More specific truck entries (do not implement these for now)
