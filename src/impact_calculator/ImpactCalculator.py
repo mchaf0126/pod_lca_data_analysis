@@ -86,12 +86,14 @@ class ReplacementImpactCalculator(ImpactCalculator):
         main_directory = Path(__file__).parents[2]
         a1a3_impact_data_file = main_directory.joinpath(f'data/template_models/{model_name}/impacts/{model_name}_product_impacts.csv')
         a4_impact_data_file = main_directory.joinpath(f'data/template_models/{model_name}/impacts/{model_name}_transportation_impacts.csv')
-        c2c4_impact_data_file = main_directory.joinpath(f'data/template_models/{model_name}/impacts/{model_name}_construction_impacts.csv')
+        a5_impact_data_file = main_directory.joinpath(f'data/template_models/{model_name}/impacts/{model_name}_construction_impacts.csv')
+        c1_c4_impact_data_file = main_directory.joinpath(f'data/template_models/{model_name}/impacts/{model_name}_end-of-life_impacts.csv')
         d_impact_data_file = main_directory.joinpath(f'data/template_models/{model_name}/impacts/{model_name}_module D_impacts.csv')
 
         a1a3_impact_data = gen.read_csv(a1a3_impact_data_file)
         a4_impact_data = gen.read_csv(a4_impact_data_file)
-        c2c4_impact_data = gen.read_csv(c2c4_impact_data_file)
+        # a5_impact_data = gen.read_csv(a5_impact_data_file)
+        c1c4_impact_data = gen.read_csv(c1_c4_impact_data_file)
         d_impact_data = gen.read_csv(d_impact_data_file)
 
         impacts_categories= ['Global Warming Potential_fossil', 
@@ -114,7 +116,8 @@ class ReplacementImpactCalculator(ImpactCalculator):
                 for impact_category in impacts_categories:
                     new_entry[impact_category] = (a1a3_impact_data[a1a3_impact_data['element_index'] == element_index].iloc[0][impact_category] + 
                                         a4_impact_data[a4_impact_data['element_index'] == element_index].iloc[0][impact_category] + 
-                                        c2c4_impact_data[c2c4_impact_data['element_index'] == element_index].iloc[0][impact_category] +
+                                        # a5_impact_data[a5_impact_data['element_index'] == element_index].iloc[0][impact_category] +
+                                        c1c4_impact_data[c1c4_impact_data['element_index'] == element_index].iloc[0][impact_category] +
                                         d_impact_data[d_impact_data['element_index'] == element_index].iloc[0][impact_category]) * no_of_replacements          
 
             impact_lst.append(new_entry)
