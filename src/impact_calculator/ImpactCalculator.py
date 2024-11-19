@@ -58,17 +58,18 @@ class ProductImpactCalculator(ImpactCalculator):
         product_impact_data_file = main_directory.joinpath('references/background_data/a1-a3.csv')
         self.load_background_dataset(product_impact_data_file)
 
+
         impacts_map = {'GWP': 'GWPf_mfg',
                        'AP': 'acp_mfg',
                        'EP': 'eup_mfg',
                        'ODP': 'odp_mfg',
                        'SFP': 'smg_mfg'}
         impact_lst = []
-        for index, row in self.bill_of_materials[0::5].iterrows(): # NOTE: It would be prefered for BOM to have one row per material
+        for index, row in self.bill_of_materials.iterrows():
             element_index = row['element_index']
             material_name = row['Material Name']
             mass = row['Mass Total (kg)']
-            new_entry = {'Material Name': material_name, 'element_index': element_index}
+            new_entry = {'element_index': element_index}
             for key, value in impacts_map.items():
                 try:
                     unit_impact = self.background_dataset[self.background_dataset['Name_generic'] == material_name].iloc[0][value]
@@ -78,7 +79,8 @@ class ProductImpactCalculator(ImpactCalculator):
                 new_entry[key] = mass * unit_impact
             impact_lst.append(new_entry)
         
-        self.impacts = pd.DataFrame(impact_lst, columns=['Material Name', 'element_index'] + list(impacts_map.keys())) # NOTE(Q): Do all other headings need to be preserved?
+        impacts_tmp = pd.DataFrame(impact_lst, columns=['element_index'] + list(impacts_map.keys()))
+        self.impacts = pd.merge(self.bill_of_materials, impacts_tmp, on='element_index', how='outer')
 
         return self.impacts
 
@@ -87,36 +89,28 @@ class ProductImpactCalculator(ImpactCalculator):
 class TransportationImpactCalculator(ImpactCalculator):
     """Calculation of transportation impacts from bill of materials. This is a placeholder."""
     def calculate_impacts(self):
-        self.impacts = self.bill_of_materials[
-            self.bill_of_materials['Life Cycle Stage'] == "[A4] Transportation"
-        ]
+        self.impacts = self.bill_of_materials
 
 
 @dataclass
 class ReplacementImpactCalculator(ImpactCalculator):
     """Calculation of replacement impacts from bill of materials. This is a placeholder."""
     def calculate_impacts(self):
-        self.impacts = self.bill_of_materials[
-            self.bill_of_materials['Life Cycle Stage'] == "[B2-B5] Maintenance and Replacement"
-        ]
+        self.impacts = self.bill_of_materials
 
 
 @dataclass
 class EndOfLifeImpactCalculator(ImpactCalculator):
     """Calculation of end-of-life impacts from bill of materials. This is a placeholder."""
     def calculate_impacts(self):
-        self.impacts = self.bill_of_materials[
-            self.bill_of_materials['Life Cycle Stage'] == "[C2-C4] End of Life"
-        ]
+        self.impacts = self.bill_of_materials
 
 
 @dataclass
 class ModuleDImpactCalculator(ImpactCalculator):
     """Calculation of Module D impacts from bill of materials. This is a placeholder."""
     def calculate_impacts(self):
-        self.impacts = self.bill_of_materials[
-            self.bill_of_materials['Life Cycle Stage'] == "[D] Module D"
-        ]
+        self.impacts = self.bill_of_materials
 
 if __name__ == '__main__':
     pass
