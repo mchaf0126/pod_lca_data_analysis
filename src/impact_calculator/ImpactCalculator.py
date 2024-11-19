@@ -59,11 +59,13 @@ class ProductImpactCalculator(ImpactCalculator):
         self.load_background_dataset(product_impact_data_file)
 
 
-        impacts_map = {'GWP': 'GWPf_mfg',
-                       'AP': 'acp_mfg',
-                       'EP': 'eup_mfg',
-                       'ODP': 'odp_mfg',
-                       'SFP': 'smg_mfg'}
+        impacts_map = {'Global Warming Potential_fossil': 'GWPf_mfg',
+                       'Global Warming Potential_biogenic': 'GWPb_mfg',
+                       'Global Warming Potential_luluc': 'GWP-LULUC',
+                       'Acidification Potential': 'acp_mfg',
+                       'Eutrophication Potential': 'eup_mfg',
+                       'Smog Formation Potential': 'smg_mfg',
+                       'Ozone Depletion Potential': 'odp_mfg'}
         impact_lst = []
         for index, row in self.bill_of_materials.iterrows():
             element_index = row['element_index']
