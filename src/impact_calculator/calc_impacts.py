@@ -1,6 +1,3 @@
-import sys
-sys.path.append('C:/Users/kiun/pod_lca_data_analysis')
-
 from pathlib import Path
 import src.impact_calculator.ImpactCalculator as ic
 
