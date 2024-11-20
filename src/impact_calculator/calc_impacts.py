@@ -15,13 +15,7 @@ def calculate_impacts():
             template_model_list.append(temp_model.name)
 
     for template_model in template_model_list:
-        bom_directory = main_directory.joinpath(f'data/template_models/{template_model}/bom')
-        impact_directory = main_directory.joinpath(f'data/template_models/{template_model}/impacts')
-        bom_file_path = \
-            [bom_file for bom_file in bom_directory.glob('*') if '.gitkeep' not in bom_file.name]
-        assert len(bom_file_path) == 1, 'There should only be one bill of materials \
-in bill of materials directory'
-
+        impact_directory = tm_directory.joinpath(f'{template_model}/impacts')
         dict_of_impact_calculators = {
             'product': ic.ProductImpactCalculator(template_model),
             'transportation': ic.TransportationImpactCalculator(template_model),
@@ -29,6 +23,7 @@ in bill of materials directory'
             'end-of-life': ic.EndOfLifeImpactCalculator(template_model),
             'module D': ic.ModuleDImpactCalculator(template_model),
         }
+
         for lcs, impact_calculator in dict_of_impact_calculators.items():
             temp_calculator = impact_calculator
             temp_calculator.load_bill_of_materials()
