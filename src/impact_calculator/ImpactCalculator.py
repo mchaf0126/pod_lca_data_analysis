@@ -21,8 +21,9 @@ class ImpactCalculator:
         """
         # find bom directory
         main_directory = Path(__file__).parents[2]
-        tm_directory = main_directory.joinpath('data/template_models')
-        bom_directory = tm_directory.joinpath(f'{self.template_model_name}/bom')
+        bom_directory = main_directory.joinpath(
+            f'data/template_models/{self.template_model_name}/bom'
+        )
 
         # find file path, assuming only one BOM in each template model folder
         bom_file_path = \
