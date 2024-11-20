@@ -30,9 +30,8 @@ class ImpactCalculator:
             [bom_file for bom_file in bom_directory.glob('*') if '.gitkeep' not in bom_file.name]
         assert len(bom_file_path) == 1, 'There should only be one bill of materials \
 in bill of materials directory'
-
         # read bom file
-        bom_df = gen.read_csv(bom_file_path)
+        bom_df = gen.read_csv(bom_file_path[0])
         self.bill_of_materials = bom_df
 
     def load_background_dataset(self, file_path: Path) -> None:
