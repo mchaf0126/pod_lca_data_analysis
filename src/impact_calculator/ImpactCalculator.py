@@ -94,7 +94,7 @@ class ReplacementImpactCalculator(ImpactCalculator):
 
         #TODO: test once all other impact calculators are merged
 
-        model_name = self.bill_of_materials['Revit model'].unique()[0]
+        model_name = self.template_model_name
 
         main_directory = Path(__file__).parents[2]
         a1a3_impact_data_file = main_directory.joinpath(f'data/template_models/{model_name}/impacts/{model_name}_product_impacts.csv')
@@ -109,34 +109,20 @@ class ReplacementImpactCalculator(ImpactCalculator):
         c1c4_impact_data = gen.read_csv(c1_c4_impact_data_file)
         d_impact_data = gen.read_csv(d_impact_data_file)
 
-        impacts_categories= ['Global Warming Potential_fossil', 
+        impacts_categories = ['Global Warming Potential_fossil', 
                              'Global Warming Potential_biogenic', 
                              'Global Warming Potential_luluc', 
                              'Acidification Potential',
                              'Eutrophication Potential',
                              'Smog Formation Potential'
                              'Ozone Depletion Potential']
-        impact_lst = []
-        for index, row in self.bill_of_materials.iterrows():
-            element_index = row['element_index']
-            material_name = row['Material Name']
-            service_life = row['Service Life']        
-            no_of_replacements = np.ceil(self.RSP / service_life) - 1
-            if no_of_replacements == 0:
-                new_entry = {'element_index': element_index} | {key: 0.0 for key in impacts_categories}
-            else:
-                new_entry = {'Material Name': material_name, 'element_index': element_index}
-                for impact_category in impacts_categories:
-                    new_entry[impact_category] = (a1a3_impact_data[a1a3_impact_data['element_index'] == element_index].iloc[0][impact_category] + 
-                                        a4_impact_data[a4_impact_data['element_index'] == element_index].iloc[0][impact_category] + 
-                                        # a5_impact_data[a5_impact_data['element_index'] == element_index].iloc[0][impact_category] +
-                                        c1c4_impact_data[c1c4_impact_data['element_index'] == element_index].iloc[0][impact_category] +
-                                        d_impact_data[d_impact_data['element_index'] == element_index].iloc[0][impact_category]) * no_of_replacements          
+        
+        stage_impact_data_list = [a1a3_impact_data, a4_impact_data, c1c4_impact_data, d_impact_data]
 
-            impact_lst.append(new_entry)
+        no_of_replacements = np.ceil(self.RSP / self.bill_of_materials['Service Life']) - 1
+        b4_impacts = sum(df[impacts_categories] for df in stage_impact_data_list) * no_of_replacements
 
-        impacts_tmp = pd.DataFrame(impact_lst, columns=['element_index'] + impacts_categories)
-        self.impacts = pd.merge(self.bill_of_materials, impacts_tmp, on='element_index', how='outer')
+        self.impacts = pd.concat([self.bill_of_materials, b4_impacts], axis=1)
 
         return self.impacts
     
@@ -145,9 +131,6 @@ class ReplacementImpactCalculator(ImpactCalculator):
 class EndOfLifeImpactCalculator(ImpactCalculator):
     """Calculation of end-of-life impacts from bill of materials. This is a placeholder."""
     def calculate_impacts(self):
-
-
-
         self.impacts = self.bill_of_materials[
             self.bill_of_materials['Life Cycle Stage'] == "[C2-C4] End of Life"
         ]
