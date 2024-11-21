@@ -1,0 +1,40 @@
+"id	",type,Service Life
+1,piling and foundations,60+
+2,Lowest ground floor,60+
+3,Superstructure: Structural elements,60+
+4,"Rain screens, timber panels",30
+5,"Brick, stone, block and precast concrete panels",60
+6,Glazed cladded/curtain walling,35
+7,Hardwood/steel/aluminium windows,30
+8,Doors,20
+9,Roof covering: Single-ply membrane,30
+10,Roof covering: Standing seam metal,30
+11,"Roof covering: Tiles, clay and concrete",60
+12,Internal partitioning and dry lining: studwork,30
+13,Internal partitioning and dry lining: blockwork,60
+14,Wall finishes: render,30
+15,Wall finishes: paint,5
+16,Floor finishes: Carpet/vinyl,7
+17,Floor finishes: Stone tiles,25
+18,Floor finishes: Raised access floor (RAF) pedestal,50
+19,Floor finishes: Raised access floor (RAF) tile,30
+20,Ceiling finishes: Substrate/paint,10
+21,Ceiling finishes: Suspended grid (ceiling system),25
+22,Loose furniture and fittings,10
+23,"MEP: Heat source, e.g. boilers, calorifiers",20
+24,"MEP: Heat source, e.g. heat pumps",15
+25,"MEP: Heat source, ground source",20
+26,Space heating and air treatment,20
+27,Central cooling systems (cooling only),15
+28,Ductwork: Galvanised,40
+29,Ductwork: Plastic or flexible,15
+30,Electrical installations,30
+31,Lighting fittings,15
+32,Communications installations and controls,15
+33,Water and disposal installations,25
+34,Rainwater harvesting and grey water collection,30
+35,Sanitaryware,20
+36,Lift and conveyor installations,20
+37,Hard landscaping: Asphalt,35
+38,Hard landscaping: Concrete and stone paving,60
+39,Hard landscaping: Timber decking,15

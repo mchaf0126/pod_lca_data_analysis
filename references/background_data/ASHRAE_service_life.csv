@@ -1,0 +1,72 @@
+id,type,Service Life
+1,standard foundations,60+
+2,special foundations,60+
+3,walls for subgrade enclosure,60+
+4,standards slabs on grade,60+
+5,structural slab on grade,60+
+6,slab trenches,60+
+7,pits and bases,60+
+8,slab-on-grade supplementary components,60+
+9,Building Subdrainage,
+10,Floor construction,60+
+11,Roof Construction,60+
+12,Stairs,60+
+13,Exterior Walls,35
+14,Exterior Windows,30
+15,Exterior Doors and Grilles,30
+16,Exterior Louvers and Vents,30
+17,Exterior Wall Appurtenances,30
+18,Exterior Wall Specialties,30
+19,Roofing,20
+20,Traffic Bearing Horizontal Enclosures,20
+21,Horizontal Openings,20
+22,Overhead Exterior Enclosures,20
+23,Interior Partitions,25
+24,Interior Windows,25
+25,Interior Doors,25
+26,Raised Floor Construction,25
+27,Wall Finishes: Epoxy (two part),15
+28,Wall Finishes: Fabric,5
+29,Wall Finishes: Glazed Wall Tile,50
+30,Wall Finishes: Paint,5
+31,Wall Finishes: Plastic Laminate,10
+32,Wall Finishes: Vinyl Wall Covering,10
+33,Wall Finishes: Wall base,5
+34,Wall Finishes: Wallpaper,4
+35,Wood Finishes: Finish,10
+36,Wood Finishes: Substrate,50
+37,Interior Fabrications,12
+38,Flooring: Carpet: Broad Loom,5
+39,Flooring: Carpet: Carpet Tiles,5
+40,Flooring: Carpet: Loop Pile,15
+41,Flooring: Concrete,50
+42,Flooring: Epoxy Coating (Two Part),10
+43,Flooring: Hardwood: Finish,10
+44,Flooring: Hardwood: Substrate,50
+45,Flooring: Laminate,10
+46,Flooring: Linoleum,5
+47,Flooring: Mosaic Tile,50
+48,Flooring: Porcelain Tile,50
+49,Flooring: Rubber Tile,5
+50,Flooring: Stone : Granite,75
+51,Flooring: Stone : Marble,50
+52,Flooring: Terrazzo,50
+53,Flooring: Vinyl: Sheet,12
+54,Flooring: Vinyl: Tile,12
+55,Stair Finishes,
+56,Ceiling Finishes: Drywall/Plaster,30
+57,Ceiling Finishes: Metal,25
+58,Ceiling Finishes: Suspended: Ceiling Tiles,13
+59,Ceiling Finishes: Suspended: Lay-in systems,25
+60,Ceiling Finishes: Suspended: Spline Systems,20
+,Domestic Water Distribution,
+,Sanitary Drainage,
+,Heating Systems,
+,Cooling Systems,
+,Facility HVAC Distribution Systems,
+,Ventilation,
+,Special Purpose HVAC Systems,
+,Facility Power Generation,
+,Electrical Service and Distribution,
+,General Purpose Electrical Power,
+,Lighting,

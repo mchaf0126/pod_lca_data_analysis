@@ -1,19 +1,48 @@
-# from pathlib import Path
-from dataclasses import dataclass
+from pathlib import Path
+from dataclasses import dataclass, field
 import pandas as pd
 import numpy as np
-# import src.utils.general as gen
+import src.utils.general as gen
+from typing import List, Type
+
+import src.impact_calculator.ImpactCalculator as ic
+
+class ScenarioTrackerMixin(type):
+    """ Tracker for all scenarios defined"""
+    def __init__(cls, name, bases, dct):
+        super().__init__(name, bases, dct)
+        cls.scenarios = []
+        for base in bases:
+            if hasattr(base, "scenarios"):
+                base.scenarios.append(cls)
 
 
-@dataclass
-class PrebuiltScenarioBuilder:
+class PrebuiltScenarioBuilder(metaclass=ScenarioTrackerMixin):
     """Methods for creating a prebuilt scenario"""
     # attributes
+    def __init__(self) -> None:
+        self.scenario_impacts = None
+       
+    def build_scenarios(self, bill_of_materials):
+        pass
 
-    # methods
+    def write_scenarios_to_csv(self, file_path: Path, scenarios_name: str) -> None:
+        """_summary_
+
+        Args:
+            file_path (Path): _description_
+        """
+        # TODO: uncomment when ready
+        # df_to_write = self.scenario_impacts
+        # df_to_write = df_to_write.set_index('element_index')
+        # gen.write_to_csv(
+        #     df=df_to_write,
+        #     write_directory=file_path,
+        #     file_name=scenarios_name
+        # )
+        pass
 
 
-@dataclass
 class TransportationScenarioBuilder(PrebuiltScenarioBuilder):
     """Methods for creating a prebuilt scenario"""
     # attributes
@@ -21,7 +50,6 @@ class TransportationScenarioBuilder(PrebuiltScenarioBuilder):
     # methods
 
 
-@dataclass
 class ConstructionScenarioBuilder(PrebuiltScenarioBuilder):
     """Methods for creating a prebuilt scenario"""
     # attributes
@@ -29,10 +57,9 @@ class ConstructionScenarioBuilder(PrebuiltScenarioBuilder):
     # methods
 
 
-@dataclass
 class ReplacementScenarioBuilder(PrebuiltScenarioBuilder):
     """
-    TMethods for creating replacement scenarios.
+    Methods for creating replacement scenarios.
     See: https://docs.google.com/document/d/1U98-ywdp16ldmXZG7rqztwkpHnKCkLEVUq2V_0_gNNk/edit?usp=sharing
          https://docs.google.com/document/d/1d9ZtZbSrMXGaN7rMRNjzVAoSHPShybrjESpL6ZFL88A/edit?usp=sharing
 
@@ -45,14 +72,14 @@ class ReplacementScenarioBuilder(PrebuiltScenarioBuilder):
         pass
 
 
-    def map_service_life(model, service_life, mapper):
+    def map_service_life(bill_of_materials, service_life, mapper):
         """ Map service life from the replacement scenario to the model.
             Updates the model data with service life.
 
             Parameters
             ----------
-            model : TemplateModel Obj.
-                Model for which the replacements are applied.
+            bill_of_materials : df.
+                Bill of material for the model.
             service_life : df.
                 Table with columns 'id', 'material', 'service life'.
             mapper : df.
@@ -65,68 +92,37 @@ class ReplacementScenarioBuilder(PrebuiltScenarioBuilder):
         """
 
 
-        material_to_service_life = pd.merge(mapper[['material', 'assembly', 'type']], service_life[['type', 'service_life']], 
+        material_to_service_life = pd.merge(mapper[['material', 'assembly', 'type']], service_life[['type', 'Service Life']], 
                                             on='type', 
                                             how='left').drop(columns=['type'])
-        model_with_service_life = pd.merge(model.model_material_data, material_to_service_life, 
+        BOM_with_service_life = pd.merge(bill_of_materials, material_to_service_life, 
                                          left_on=['Material Name', 'Revit category'], 
                                          right_on=['material', 'assembly'], 
                                          how='left').drop(columns=['material'])
-        
-        model.model_material_data = model_with_service_life
 
-        return model
+        return BOM_with_service_life
+    
+    def build_scenarios(self, bill_of_materials):
 
+        for replacement_scenario in self.scenarios:
 
-    def calculate_impacts(model, RSP=60):
-        """ Calcualte the impacts, considering a reference study period (default 60 yrs).
-            Service life entry of '60+' is matched to reference study period.
-            Default reference study period is 60 years.
+            main_directory = Path(__file__).parents[2]
+            background_data_folder = main_directory.joinpath('references/background_data')
 
-            Parameters
-            ----------
-            model : TemplateModel Obj.
-                Model for which the replacements are applied.
-            model_to_service_life : df.
-                Model data with service life column.
-            RSP : int.
-                Reference study period in years.
+            mapper, service_life = replacement_scenario.import_data(background_data_folder)
+            bill_of_materials_updated = replacement_scenario.map_service_life(bill_of_materials, service_life, mapper)
 
-            Returns
-            -------
-            df.
-                Table of replacement (B4) impacts by TRACI categories (column headings) for each material in the model (row headings by element index)    
-        """
+            replacement_calculator = ic.ReplacementImpactCalculator()
+            replacement_calculator.bill_of_materials = bill_of_materials_updated
+            b4_impacts = replacement_calculator.calculate_impacts()
+            #TODO: complete RICS mapping
+            #TODO: label and write data
+            #TODO: test ASHRAE mapper stuff
 
-        # no. of replacements
-        service_life_in_str = model.model_material_data['service_life']
-        service_life_in_str = service_life_in_str.replace('60+', RSP)
-        service_life = pd.to_numeric(service_life_in_str)
-        no_of_replacements = np.ceil(RSP / service_life) - 1
-
-        # impacts per replacement
-        a1_a3 = model.impact_data['a1-a3']
-        a4    = model.impact_data['a4']
-        c2_c4 = model.impact_data['c2-c4']
-        d     = model.impact_data['d']
-
-        # total impacts
-        b4 = a1_a3.copy()
-        b4['Life Cycle Stage'] = '[B4] Replacement'
-        for impact_category in ['Acidification Potential Total (kgSO2eq)', 'Eutrophication Potential Total (kgNeq)', 'Global Warming Potential Total (kgCO2eq)', 'Ozone Depletion Potential Total (CFC-11eq)', 'Smog Formation Potential Total (kgO3eq)']:
-            b4[impact_category] = (a1_a3[impact_category] + a4[impact_category] + c2_c4[impact_category] + d[impact_category]) * no_of_replacements
-
-        return b4
-
-    def set_results(model, result):
-        """ Set calculated replacement (B4) impacts to the model data.
-        """
-
-        pass
-        # TODO: Implement method
+        #TODO: Return one df with all scenario data
 
 
-class RICS(PrebuiltScenarioBuilder):
+class RICS(ReplacementScenarioBuilder):
     """
     Replacement scenario based on RICS data.
     See: https://docs.google.com/document/d/107xA9jqJ1mrnRmRRFBudW7x9DQP_elYQgowDAsCcYXA/edit
@@ -135,8 +131,8 @@ class RICS(PrebuiltScenarioBuilder):
 
     def import_data(data_folder):
         
-        mapper_file = data_folder + '\RICS_mapper.csv'
-        service_life_file = data_folder + '\RICS_service_life.csv'
+        mapper_file = data_folder.joinpath('RICS_mapper.csv')
+        service_life_file = data_folder.joinpath('RICS_service_life.csv')
 
         mapper = pd.read_csv(mapper_file)
         service_life = pd.read_csv(service_life_file)
@@ -178,7 +174,6 @@ class ASHRAE(PrebuiltScenarioBuilder):
         return model
     
 
-@dataclass
 class EndOfLifeScenarioBuilder(PrebuiltScenarioBuilder):
     """Methods for creating a prebuilt scenario"""
     # attributes

@@ -1,0 +1,28 @@
+id,material,assembly,type
+1,"Aluminum extrusion, mill-finished, Kawneer - EPD",Curtainwall Mullions,Glazed cladded/curtain walling
+2,"Powder coating, metal stock",Curtainwall Mullions,Glazed cladded/curtain walling
+3,"Glazing, double, insulated (air)",Curtainwall Panels,Glazed cladded/curtain walling
+4,"Lightweight concrete, 3000 psi, 20% fly ash",Floors,Superstructure: Structural elements
+5,"Steel, reinforcing rod",Floors,Superstructure: Structural elements
+6,CLT (Cross laminated timber),Floors,Superstructure: Structural elements
+7,"PVC membrane, sheet",Floors,
+8,"Adhesive, polychloroprene (neoprene)",Floors,
+9,"PIR rigid foam insulation, roof, R=15, PIMA - EPD",Floors,
+10,"Structural concrete, 4000 psi, 20% fly ash",Floors,Superstructure: Structural elements
+11,"Expanded polystyrene (EPS), board",Floors,
+12,"Glue laminated timber (Glulam), AWC - EPD",Structural Columns,Superstructure: Structural elements
+13,"Structural concrete, 4000 psi, 20% fly ash",Structural Foundations,piling and foundations
+14,"Steel, reinforcing rod",Structural Foundations,piling and foundations
+15,"Glue laminated timber (Glulam), AWC - EPD",Structural Framing,Superstructure: Structural elements
+16,"Structural concrete, 6000 psi, Pacific Southwest regional average",Walls,"Brick, stone, block and precast concrete panels"
+17,"Steel, reinforcing rod",Walls,"Brick, stone, block and precast concrete panels"
+18,"Aluminum, sheet",Walls,
+19,"Powder coating, metal stock",Walls,
+20,Polyurethane foam (PUR) rigid board,Walls,
+21,"Steel, sheet",Walls,
+22,"Fasteners, stainless steel",Walls,
+23,Fiberglass mat gypsum sheathing board,Walls,
+24,Cold formed structural steel,Walls,
+25,"Cellulose insulation, boards",Walls,
+26,"Wall board, gypsum, natural",Walls,Wall finishes: render
+27,"Paint, interior acrylic latex",Walls,Wall finishes: paint
