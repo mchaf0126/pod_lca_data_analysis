@@ -9,17 +9,30 @@ import src.utils.general as gen
 @dataclass
 class ImpactCalculator:
     """Abstract class for impact calculators."""
+    template_model_name: str
     bill_of_materials: pd.DataFrame = field(default=None)
     background_dataset: pd.DataFrame = field(default=None)
     impacts: pd.DataFrame = field(default=None)
 
-    def load_bill_of_materials(self, file_path: Path) -> None:
+    def load_bill_of_materials(self) -> None:
         """_summary_
 
         Args:
             file_path (Path): _description_
         """
-        bom_df = gen.read_csv(file_path)
+        # find bom directory
+        main_directory = Path(__file__).parents[2]
+        bom_directory = main_directory.joinpath(
+            f'data/template_models/{self.template_model_name}/bom'
+        )
+
+        # find file path, assuming only one BOM in each template model folder
+        bom_file_path = \
+            [bom_file for bom_file in bom_directory.glob('*') if '.gitkeep' not in bom_file.name]
+        assert len(bom_file_path) == 1, 'There should only be one bill of materials \
+in bill of materials directory'
+        # read bom file
+        bom_df = gen.read_csv(bom_file_path[0])
         self.bill_of_materials = bom_df
 
     def load_background_dataset(self, file_path: Path) -> None:
