@@ -71,7 +71,6 @@ class ProductImpactCalculator(ImpactCalculator):
         product_impact_data_file = main_directory.joinpath('references/background_data/a1-a3.csv')
         self.load_background_dataset(product_impact_data_file)
 
-
         impacts_map = {'Global Warming Potential_fossil': 'GWPf_mfg',
                        'Global Warming Potential_biogenic': 'GWPb_mfg',
                        'Global Warming Potential_luluc': 'GWP-LULUC',
@@ -79,23 +78,11 @@ class ProductImpactCalculator(ImpactCalculator):
                        'Eutrophication Potential': 'eup_mfg',
                        'Smog Formation Potential': 'smg_mfg',
                        'Ozone Depletion Potential': 'odp_mfg'}
-        impact_lst = []
-        for index, row in self.bill_of_materials.iterrows():
-            element_index = row['element_index']
-            material_name = row['Material Name']
-            mass = row['Mass Total (kg)']
-            new_entry = {'element_index': element_index}
-            for key, value in impacts_map.items():
-                try:
-                    unit_impact = self.background_dataset[self.background_dataset['Name_generic'] == material_name].iloc[0][value]
-                except IndexError as e:
-                    print(f"{material_name} not in background dataset.")
-                    break
-                new_entry[key] = mass * unit_impact
-            impact_lst.append(new_entry)
         
-        impacts_tmp = pd.DataFrame(impact_lst, columns=['element_index'] + list(impacts_map.keys()))
-        self.impacts = pd.merge(self.bill_of_materials, impacts_tmp, on='element_index', how='outer')
+        self.impacts = pd.merge(self.bill_of_materials, self.background_dataset, left_on='Material Name', right_on='Name_generic', how='left')
+        for impact in impacts_map:
+            self.impacts[impact] = self.impacts[impacts_map[impact]] * self.impacts['Mass Total (kg)']
+            self.impacts.drop(impacts_map[impact], axis=1, inplace=True)
 
         return self.impacts
 
