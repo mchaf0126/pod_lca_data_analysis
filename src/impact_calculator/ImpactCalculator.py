@@ -1,3 +1,4 @@
+"""Definition of classes for calculation of environmental impacts."""
 from dataclasses import dataclass, field
 from abc import abstractmethod
 from pathlib import Path
@@ -12,7 +13,7 @@ class ImpactCalculator:
     bill_of_materials: pd.DataFrame = field(default=None)
     background_dataset: pd.DataFrame = field(default=None)
     impacts: pd.DataFrame = field(default=None)
-    # TODO: add impact names as a attribute of the ImpactCalculator parent class 
+    # add impact names as a attribute of the ImpactCalculator parent class
 
     def load_bill_of_materials(self) -> None:
         """_summary_
@@ -82,7 +83,7 @@ class ProductImpactCalculator(ImpactCalculator):
 
         self.impacts = pd.merge(
             self.bill_of_materials,
-            self.background_dataset[['Name_generic'] + [impacts_map[impact] for impact in impacts_map]],
+            self.background_dataset[['Name_generic'] + list(impacts_map.values())],
             left_on='Material Name',
             right_on='Name_generic',
             how='left'
@@ -90,9 +91,10 @@ class ProductImpactCalculator(ImpactCalculator):
             "Name_generic",
             axis=1
         )
-        
+
         for impact_name, impact_df_name in impacts_map.items():
-            self.impacts[impact_name] = self.impacts[impact_df_name] * self.impacts['Mass Total (kg)']
+            self.impacts[impact_name] = \
+                self.impacts[impact_df_name] * self.impacts['Mass Total (kg)']
             self.impacts.drop(impact_df_name, axis=1, inplace=True)
 
         return self.impacts
