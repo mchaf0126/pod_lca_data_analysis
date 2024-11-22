@@ -13,7 +13,18 @@ class ImpactCalculator:
     bill_of_materials: pd.DataFrame = field(default=None)
     background_dataset: pd.DataFrame = field(default=None)
     impacts: pd.DataFrame = field(default=None)
-    # add impact names as a attribute of the ImpactCalculator parent class
+    impacts_map: dict = field(init=False)
+
+    def __post_init__(self):
+        self.impacts_map = {
+            'Global Warming Potential_fossil': 'GWPf_mfg',
+            'Global Warming Potential_biogenic': 'GWPb_mfg',
+            'Global Warming Potential_luluc': 'GWP-LULUC',
+            'Acidification Potential': 'acp_mfg',
+            'Eutrophication Potential': 'eup_mfg',
+            'Smog Formation Potential': 'smg_mfg',
+            'Ozone Depletion Potential': 'odp_mfg'
+        }
 
     def load_bill_of_materials(self) -> None:
         """_summary_
@@ -73,17 +84,9 @@ class ProductImpactCalculator(ImpactCalculator):
         product_impact_data_file = main_directory.joinpath('references/background_data/a1-a3.csv')
         self.load_background_dataset(product_impact_data_file)
 
-        impacts_map = {'Global Warming Potential_fossil': 'GWPf_mfg',
-                       'Global Warming Potential_biogenic': 'GWPb_mfg',
-                       'Global Warming Potential_luluc': 'GWP-LULUC',
-                       'Acidification Potential': 'acp_mfg',
-                       'Eutrophication Potential': 'eup_mfg',
-                       'Smog Formation Potential': 'smg_mfg',
-                       'Ozone Depletion Potential': 'odp_mfg'}
-
         self.impacts = pd.merge(
             self.bill_of_materials,
-            self.background_dataset[['Name_generic'] + list(impacts_map.values())],
+            self.background_dataset[['Name_generic'] + list(self.impacts_map.values())],
             left_on='Material Name',
             right_on='Name_generic',
             how='left'
@@ -92,7 +95,7 @@ class ProductImpactCalculator(ImpactCalculator):
             axis=1
         )
 
-        for impact_name, impact_df_name in impacts_map.items():
+        for impact_name, impact_df_name in self.impacts_map.items():
             self.impacts[impact_name] = \
                 self.impacts[impact_df_name] * self.impacts['Mass Total (kg)']
             self.impacts.drop(impact_df_name, axis=1, inplace=True)
