@@ -1,3 +1,4 @@
+"""Definition of classes for calculation of environmental impacts."""
 from dataclasses import dataclass, field
 from abc import abstractmethod
 from pathlib import Path
@@ -12,6 +13,7 @@ class ImpactCalculator:
     bill_of_materials: pd.DataFrame = field(default=None)
     background_dataset: pd.DataFrame = field(default=None)
     impacts: pd.DataFrame = field(default=None)
+    # add impact names as a attribute of the ImpactCalculator parent class
 
     def load_bill_of_materials(self) -> None:
         """_summary_
@@ -64,44 +66,67 @@ in bill of materials directory'
 
 @dataclass
 class ProductImpactCalculator(ImpactCalculator):
-    """Calculation of product impacts from bill of materials. This is a placeholder."""
+    """Calculation of product impacts from bill of materials."""
     def calculate_impacts(self):
-        self.impacts = self.bill_of_materials[
-            self.bill_of_materials['Life Cycle Stage'] == "[A1-A3] Product"
-        ]
+
+        main_directory = Path(__file__).parents[2]
+        product_impact_data_file = main_directory.joinpath('references/background_data/a1-a3.csv')
+        self.load_background_dataset(product_impact_data_file)
+
+        impacts_map = {'Global Warming Potential_fossil': 'GWPf_mfg',
+                       'Global Warming Potential_biogenic': 'GWPb_mfg',
+                       'Global Warming Potential_luluc': 'GWP-LULUC',
+                       'Acidification Potential': 'acp_mfg',
+                       'Eutrophication Potential': 'eup_mfg',
+                       'Smog Formation Potential': 'smg_mfg',
+                       'Ozone Depletion Potential': 'odp_mfg'}
+
+        self.impacts = pd.merge(
+            self.bill_of_materials,
+            self.background_dataset[['Name_generic'] + list(impacts_map.values())],
+            left_on='Material Name',
+            right_on='Name_generic',
+            how='left'
+        ).drop(
+            "Name_generic",
+            axis=1
+        )
+
+        for impact_name, impact_df_name in impacts_map.items():
+            self.impacts[impact_name] = \
+                self.impacts[impact_df_name] * self.impacts['Mass Total (kg)']
+            self.impacts.drop(impact_df_name, axis=1, inplace=True)
+
+        return self.impacts
 
 
 @dataclass
 class TransportationImpactCalculator(ImpactCalculator):
     """Calculation of transportation impacts from bill of materials. This is a placeholder."""
     def calculate_impacts(self):
-        self.impacts = self.bill_of_materials[
-            self.bill_of_materials['Life Cycle Stage'] == "[A4] Transportation"
-        ]
+        self.impacts = self.bill_of_materials
 
 
 @dataclass
 class ReplacementImpactCalculator(ImpactCalculator):
     """Calculation of replacement impacts from bill of materials. This is a placeholder."""
     def calculate_impacts(self):
-        self.impacts = self.bill_of_materials[
-            self.bill_of_materials['Life Cycle Stage'] == "[B2-B5] Maintenance and Replacement"
-        ]
+        self.impacts = self.bill_of_materials
 
 
 @dataclass
 class EndOfLifeImpactCalculator(ImpactCalculator):
     """Calculation of end-of-life impacts from bill of materials. This is a placeholder."""
     def calculate_impacts(self):
-        self.impacts = self.bill_of_materials[
-            self.bill_of_materials['Life Cycle Stage'] == "[C2-C4] End of Life"
-        ]
+        self.impacts = self.bill_of_materials
 
 
 @dataclass
 class ModuleDImpactCalculator(ImpactCalculator):
     """Calculation of Module D impacts from bill of materials. This is a placeholder."""
     def calculate_impacts(self):
-        self.impacts = self.bill_of_materials[
-            self.bill_of_materials['Life Cycle Stage'] == "[D] Module D"
-        ]
+        self.impacts = self.bill_of_materials
+
+
+if __name__ == '__main__':
+    pass
