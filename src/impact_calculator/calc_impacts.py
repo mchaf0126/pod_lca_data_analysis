@@ -19,9 +19,9 @@ def calculate_impacts():
         dict_of_impact_calculators = {
             'product': ic.ProductImpactCalculator(template_model),
             'transportation': ic.TransportationImpactCalculator(template_model),
-            'replacement': ic.ReplacementImpactCalculator(template_model),
             'end-of-life': ic.EndOfLifeImpactCalculator(template_model),
             'module D': ic.ModuleDImpactCalculator(template_model),
+            'replacement': ic.ReplacementImpactCalculator(template_model) # replacement impacts to be calculated last
         }
 
         for lcs, impact_calculator in dict_of_impact_calculators.items():

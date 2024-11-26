@@ -1,3 +1,4 @@
+"""Definition of classes for calculation of environmental impacts."""
 from dataclasses import dataclass, field
 from abc import abstractmethod
 from pathlib import Path
@@ -13,6 +14,18 @@ class ImpactCalculator:
     bill_of_materials: pd.DataFrame = field(default=None)
     background_dataset: pd.DataFrame = field(default=None)
     impacts: pd.DataFrame = field(default=None)
+    impacts_map: dict = field(init=False)
+
+    def __post_init__(self):
+        self.impacts_map = {
+            'Global Warming Potential_fossil': 'GWPf_mfg',
+            'Global Warming Potential_biogenic': 'GWPb_mfg',
+            'Global Warming Potential_luluc': 'GWP-LULUC',
+            'Acidification Potential': 'acp_mfg',
+            'Eutrophication Potential': 'eup_mfg',
+            'Smog Formation Potential': 'smg_mfg',
+            'Ozone Depletion Potential': 'odp_mfg'
+        }
 
     def load_bill_of_materials(self) -> None:
         """_summary_
@@ -65,20 +78,37 @@ in bill of materials directory'
 
 @dataclass
 class ProductImpactCalculator(ImpactCalculator):
-    """Calculation of product impacts from bill of materials. This is a placeholder."""
+    """Calculation of product impacts from bill of materials."""
     def calculate_impacts(self):
-        self.impacts = self.bill_of_materials[
-            self.bill_of_materials['Life Cycle Stage'] == "[A1-A3] Product"
-        ]
+
+        main_directory = Path(__file__).parents[2]
+        product_impact_data_file = main_directory.joinpath('references/background_data/a1-a3.csv')
+        self.load_background_dataset(product_impact_data_file)
+
+        self.impacts = pd.merge(
+            self.bill_of_materials,
+            self.background_dataset[['Name_generic'] + list(self.impacts_map.values())],
+            left_on='Material Name',
+            right_on='Name_generic',
+            how='left'
+        ).drop(
+            "Name_generic",
+            axis=1
+        )
+
+        for impact_name, impact_df_name in self.impacts_map.items():
+            self.impacts[impact_name] = \
+                self.impacts[impact_df_name] * self.impacts['Mass Total (kg)']
+            self.impacts.drop(impact_df_name, axis=1, inplace=True)
+
+        return self.impacts
 
 
 @dataclass
 class TransportationImpactCalculator(ImpactCalculator):
     """Calculation of transportation impacts from bill of materials. This is a placeholder."""
     def calculate_impacts(self):
-        self.impacts = self.bill_of_materials[
-            self.bill_of_materials['Life Cycle Stage'] == "[A4] Transportation"
-        ]
+        self.impacts = self.bill_of_materials
 
 
 @dataclass
@@ -92,8 +122,6 @@ class ReplacementImpactCalculator(ImpactCalculator):
 
     def calculate_impacts(self):
 
-        #TODO: test once all other impact calculators are merged
-
         model_name = self.template_model_name
 
         main_directory = Path(__file__).parents[2]
@@ -104,23 +132,15 @@ class ReplacementImpactCalculator(ImpactCalculator):
         d_impact_data_file = main_directory.joinpath(f'data/template_models/{model_name}/impacts/{model_name}_module D_impacts.csv')
 
         a1a3_impact_data = gen.read_csv(a1a3_impact_data_file)
-        a4_impact_data = gen.read_csv(a4_impact_data_file)
+        # a4_impact_data = gen.read_csv(a4_impact_data_file)
         # a5_impact_data = gen.read_csv(a5_impact_data_file)
         c1c4_impact_data = gen.read_csv(c1_c4_impact_data_file)
-        d_impact_data = gen.read_csv(d_impact_data_file)
-
-        impacts_categories = ['Global Warming Potential_fossil', 
-                             'Global Warming Potential_biogenic', 
-                             'Global Warming Potential_luluc', 
-                             'Acidification Potential',
-                             'Eutrophication Potential',
-                             'Smog Formation Potential'
-                             'Ozone Depletion Potential']
+        # d_impact_data = gen.read_csv(d_impact_data_file)
         
-        stage_impact_data_list = [a1a3_impact_data, a4_impact_data, c1c4_impact_data, d_impact_data]
+        stage_impact_data_list = [a1a3_impact_data, c1c4_impact_data] #a4_impact_data, a5_impact_data, d_impact_data #TODO: add as the other impact calculators are written
 
-        no_of_replacements = np.ceil(self.RSP / self.bill_of_materials['Service Life']) - 1
-        b4_impacts = sum(df[impacts_categories] for df in stage_impact_data_list) * no_of_replacements
+        no_of_replacements = np.ceil(self.RSP / self.bill_of_materials['Service Life']) - 1 #FIXME: check if the Service Life will be in the BOM
+        b4_impacts = sum(df[list(self.impacts_map.keys())] for df in stage_impact_data_list).mul(no_of_replacements, axis=0)
 
         self.impacts = pd.concat([self.bill_of_materials, b4_impacts], axis=1)
 
@@ -131,15 +151,15 @@ class ReplacementImpactCalculator(ImpactCalculator):
 class EndOfLifeImpactCalculator(ImpactCalculator):
     """Calculation of end-of-life impacts from bill of materials. This is a placeholder."""
     def calculate_impacts(self):
-        self.impacts = self.bill_of_materials[
-            self.bill_of_materials['Life Cycle Stage'] == "[C2-C4] End of Life"
-        ]
+        self.impacts = self.bill_of_materials
 
 
 @dataclass
 class ModuleDImpactCalculator(ImpactCalculator):
     """Calculation of Module D impacts from bill of materials. This is a placeholder."""
     def calculate_impacts(self):
-        self.impacts = self.bill_of_materials[
-            self.bill_of_materials['Life Cycle Stage'] == "[D] Module D"
-        ]
+        self.impacts = self.bill_of_materials
+
+
+if __name__ == '__main__':
+    pass
