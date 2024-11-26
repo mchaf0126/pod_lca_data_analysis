@@ -1,4 +1,4 @@
-﻿id_PODLCA,Name_generic,Reference Unit,Description,density,acp_eol,eup_eol,GWPf_eol,GWPb_eol,GWP-LULUC,odp_eol,smg_eol
+﻿id_PODLCA,Name_generic,Reference Unit,Description,density,acp_eol,eup_eol,GWPf_eol,GWPb_eol,GWP-LULUC_eol,odp_eol,smg_eol
 0,None,kg,"This entry acts as a dummy material, carrying no environmental impacts, for use in cases when there is ""no finish"" or ""no added material"" designated.",0,0,0,0,,,0,0
 1,"Steel, reinforcing rod",kg,Common unfinished tempered steel rod suitable for structural reinforcement (rebar),7850,6.10E-05,3.09E-06,0.013,0,,2.43E-15,0.00121
 2,"Steel, welded wire mesh",kg,Steel rods further processed into wires appropriate for welded wire mesh reinforcement,7850,4.07E-06,2.06E-07,0.001,0,,1.62E-16,8.07E-05

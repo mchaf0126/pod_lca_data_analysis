@@ -86,7 +86,7 @@ class ProductImpactCalculator(ImpactCalculator):
 
         self.impacts = pd.merge(
             self.bill_of_materials,
-            self.background_dataset[['Name_generic'] + list(self.impacts_map.values())],
+            self.background_dataset[['Name_generic'] + [impact_cat + '_mfg' for impact_cat in self.impacts_map.values()]],
             left_on='Material Name',
             right_on='Name_generic',
             how='left'
@@ -97,8 +97,8 @@ class ProductImpactCalculator(ImpactCalculator):
 
         for impact_name, impact_df_name in self.impacts_map.items():
             self.impacts[impact_name] = \
-                self.impacts[impact_df_name] * self.impacts['Mass Total (kg)']
-            self.impacts.drop(impact_df_name, axis=1, inplace=True)
+                self.impacts[impact_df_name + '_mfg'] * self.impacts['Mass Total (kg)']
+            self.impacts.drop(impact_df_name + '_mfg', axis=1, inplace=True)
 
         return self.impacts
 
@@ -128,7 +128,7 @@ class EndOfLifeImpactCalculator(ImpactCalculator):
 
         self.impacts = pd.merge(
             self.bill_of_materials,
-            self.background_dataset[['Name_generic'] + list(self.impacts_map.values())], #FIXME: issue with the impact_map names
+            self.background_dataset[['Name_generic'] + [impact_cat + '_eol' for impact_cat in self.impacts_map.values()]], #FIXME: issue with the impact_map names
             left_on='Material Name',
             right_on='Name_generic',
             how='left'
@@ -139,8 +139,8 @@ class EndOfLifeImpactCalculator(ImpactCalculator):
 
         for impact_name, impact_df_name in self.impacts_map.items():
             self.impacts[impact_name] = \
-                self.impacts[impact_df_name] * self.impacts['Mass Total (kg)']
-            self.impacts.drop(impact_df_name, axis=1, inplace=True)
+                self.impacts[impact_df_name + '_eol'] * self.impacts['Mass Total (kg)']
+            self.impacts.drop(impact_df_name + '_eol', axis=1, inplace=True)
 
         return self.impacts
 
