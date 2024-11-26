@@ -17,13 +17,13 @@ class ImpactCalculator:
 
     def __post_init__(self):
         self.impacts_map = {
-            'Global Warming Potential_fossil': 'GWPf_mfg',
-            'Global Warming Potential_biogenic': 'GWPb_mfg',
+            'Global Warming Potential_fossil': 'GWPf',
+            'Global Warming Potential_biogenic': 'GWPb',
             'Global Warming Potential_luluc': 'GWP-LULUC',
-            'Acidification Potential': 'acp_mfg',
-            'Eutrophication Potential': 'eup_mfg',
-            'Smog Formation Potential': 'smg_mfg',
-            'Ozone Depletion Potential': 'odp_mfg'
+            'Acidification Potential': 'acp',
+            'Eutrophication Potential': 'eup',
+            'Smog Formation Potential': 'smg',
+            'Ozone Depletion Potential': 'odp'
         }
 
     def load_bill_of_materials(self) -> None:
@@ -121,7 +121,28 @@ class ReplacementImpactCalculator(ImpactCalculator):
 class EndOfLifeImpactCalculator(ImpactCalculator):
     """Calculation of end-of-life impacts from bill of materials. This is a placeholder."""
     def calculate_impacts(self):
-        self.impacts = self.bill_of_materials
+
+        main_directory = Path(__file__).parents[2]
+        EOL_impact_data_file = main_directory.joinpath('references/background_data/c2-c4.csv')
+        self.load_background_dataset(EOL_impact_data_file)
+
+        self.impacts = pd.merge(
+            self.bill_of_materials,
+            self.background_dataset[['Name_generic'] + list(self.impacts_map.values())], #FIXME: issue with the impact_map names
+            left_on='Material Name',
+            right_on='Name_generic',
+            how='left'
+        ).drop(
+            "Name_generic",
+            axis=1
+        )
+
+        for impact_name, impact_df_name in self.impacts_map.items():
+            self.impacts[impact_name] = \
+                self.impacts[impact_df_name] * self.impacts['Mass Total (kg)']
+            self.impacts.drop(impact_df_name, axis=1, inplace=True)
+
+        return self.impacts
 
 
 @dataclass
