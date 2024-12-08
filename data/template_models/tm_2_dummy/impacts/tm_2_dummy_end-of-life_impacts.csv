@@ -1,35 +1,35 @@
-element_index,Revit model,Revit category,Revit building element,Tally Entry Division,Material Name,Life Cycle Stage,Mass Total (kg)
-Element_0,tm_2_dummy,Curtainwall Mullions,Enclosure,08 - Openings and Glazing,"Aluminum extrusion, mill-finished, Kawneer - EPD",[A1-A3] Product,2217.515116
-Element_1,tm_2_dummy,Curtainwall Mullions,Enclosure,08 - Openings and Glazing,"Powder coating, metal stock",[A1-A3] Product,80.66089674
-Element_2,tm_2_dummy,Curtainwall Panels,Enclosure,08 - Openings and Glazing,"Glazing, double, insulated (air)",[A1-A3] Product,20050.9039
-Element_3,tm_2_dummy,Floors,Superstructure,03 - Concrete,"Lightweight concrete, 3000 psi, 20% fly ash",[A1-A3] Product,764812.8918
-Element_4,tm_2_dummy,Floors,Superstructure,03 - Concrete,"Steel, reinforcing rod",[A1-A3] Product,12508.11748
-Element_5,tm_2_dummy,Floors,Superstructure,06 - Wood/Plastics/Composites,CLT (Cross laminated timber),[A1-A3] Product,429265.6963
-Element_6,tm_2_dummy,Floors,Superstructure,07 - Thermal and Moisture Protection,"PVC membrane, sheet",[A1-A3] Product,2256.289681
-Element_7,tm_2_dummy,Floors,Superstructure,07 - Thermal and Moisture Protection,"Adhesive, polychloroprene (neoprene)",[A1-A3] Product,122.469949
-Element_8,tm_2_dummy,Floors,Superstructure,07 - Thermal and Moisture Protection,"PIR rigid foam insulation, roof, R=15, PIMA - EPD",[A1-A3] Product,6096.050734
-Element_9,tm_2_dummy,Floors,Superstructure,03 - Concrete,"Lightweight concrete, 3000 psi, 20% fly ash",[A1-A3] Product,191203.223
-Element_10,tm_2_dummy,Floors,Superstructure,03 - Concrete,"Steel, reinforcing rod",[A1-A3] Product,3127.029369
-Element_11,tm_2_dummy,Floors,Superstructure,06 - Wood/Plastics/Composites,CLT (Cross laminated timber),[A1-A3] Product,107316.4241
-Element_12,tm_2_dummy,Floors,Substructure,03 - Concrete,"Structural concrete, 4000 psi, 20% fly ash",[A1-A3] Product,353252.5258
-Element_13,tm_2_dummy,Floors,Substructure,03 - Concrete,"Steel, reinforcing rod",[A1-A3] Product,6919.221465
-Element_14,tm_2_dummy,Floors,Substructure,07 - Thermal and Moisture Protection,"Expanded polystyrene (EPS), board",[A1-A3] Product,160.3866191
-Element_15,tm_2_dummy,Structural Columns,Superstructure,06 - Wood/Plastics/Composites,"Glue laminated timber (Glulam), AWC - EPD",[A1-A3] Product,41625.84161
-Element_16,tm_2_dummy,Structural Foundations,Substructure,03 - Concrete,"Structural concrete, 4000 psi, 20% fly ash",[A1-A3] Product,175841.2573
-Element_17,tm_2_dummy,Structural Foundations,Substructure,03 - Concrete,"Steel, reinforcing rod",[A1-A3] Product,2537.189455
-Element_18,tm_2_dummy,Structural Foundations,Substructure,03 - Concrete,"Structural concrete, 4000 psi, 20% fly ash",[A1-A3] Product,123088.8801
-Element_19,tm_2_dummy,Structural Foundations,Substructure,03 - Concrete,"Steel, reinforcing rod",[A1-A3] Product,1776.032618
-Element_20,tm_2_dummy,Structural Framing,Superstructure,06 - Wood/Plastics/Composites,"Glue laminated timber (Glulam), AWC - EPD",[A1-A3] Product,264754.7337
-Element_21,tm_2_dummy,Structural Framing,Superstructure,06 - Wood/Plastics/Composites,"Glue laminated timber (Glulam), AWC - EPD",[A1-A3] Product,112333.5436
-Element_22,tm_2_dummy,Walls,Enclosure,03 - Concrete,"Structural concrete, 6000 psi, Pacific Southwest regional average",[A1-A3] Product,653458.1668
-Element_23,tm_2_dummy,Walls,Enclosure,03 - Concrete,"Steel, reinforcing rod",[A1-A3] Product,77470.33798
-Element_24,tm_2_dummy,Walls,Enclosure,07 - Thermal and Moisture Protection,"Aluminum, sheet",[A1-A3] Product,2947.796819
-Element_25,tm_2_dummy,Walls,Enclosure,07 - Thermal and Moisture Protection,"Powder coating, metal stock",[A1-A3] Product,731.498137
-Element_26,tm_2_dummy,Walls,Enclosure,07 - Thermal and Moisture Protection,Polyurethane foam (PUR) rigid board,[A1-A3] Product,2286.775714
-Element_27,tm_2_dummy,Walls,Enclosure,07 - Thermal and Moisture Protection,"Steel, sheet",[A1-A3] Product,6357.712898
-Element_28,tm_2_dummy,Walls,Enclosure,07 - Thermal and Moisture Protection,"Fasteners, stainless steel",[A1-A3] Product,1650.559899
-Element_29,tm_2_dummy,Walls,Enclosure,09 - Finishes,Fiberglass mat gypsum sheathing board,[A1-A3] Product,18381.23524
-Element_30,tm_2_dummy,Walls,Enclosure,05 - Metals,Cold formed structural steel,[A1-A3] Product,7135.263235
-Element_31,tm_2_dummy,Walls,Enclosure,05 - Metals,"Cellulose insulation, boards",[A1-A3] Product,15245.17143
-Element_32,tm_2_dummy,Walls,Enclosure,09 - Finishes,"Wall board, gypsum, natural",[A1-A3] Product,19056.46429
-Element_33,tm_2_dummy,Walls,Enclosure,09 - Finishes,"Paint, interior acrylic latex",[A1-A3] Product,366.3063575
+element_index,Revit model,Revit category,Revit building element,Tally Entry Division,Material Name,Life Cycle Stage,Mass Total (kg),Global Warming Potential_fossil,Global Warming Potential_biogenic,Global Warming Potential_luluc,Acidification Potential,Eutrophication Potential,Smog Formation Potential,Ozone Depletion Potential
+Element_0,tm_2_dummy,Curtainwall Mullions,Enclosure,08 - Openings and Glazing,"Aluminum extrusion, mill-finished, Kawneer - EPD",[A1-A3] Product,2217.515116,,,,,,,
+Element_1,tm_2_dummy,Curtainwall Mullions,Enclosure,08 - Openings and Glazing,"Powder coating, metal stock",[A1-A3] Product,80.66089674,3.6297403533,-0.08066089674,,0.01637416203822,0.000830807236422,0.32506341386219995,6.525466546266e-13
+Element_2,tm_2_dummy,Curtainwall Panels,Enclosure,08 - Openings and Glazing,"Glazing, double, insulated (air)",[A1-A3] Product,20050.9039,,,,,,,
+Element_3,tm_2_dummy,Floors,Superstructure,03 - Concrete,"Lightweight concrete, 3000 psi, 20% fly ash",[A1-A3] Product,764812.8918,30592.515672,0.0,,69.9803795997,3.5487318179519995,1391.959463076,2.783918926152e-09
+Element_4,tm_2_dummy,Floors,Superstructure,03 - Concrete,"Steel, reinforcing rod",[A1-A3] Product,12508.11748,162.60552724000001,0.0,,0.7629951662800001,0.038650083013200005,15.1348221508,3.03947254764e-11
+Element_5,tm_2_dummy,Floors,Superstructure,06 - Wood/Plastics/Composites,CLT (Cross laminated timber),[A1-A3] Product,429265.6963,212915.78536480002,285032.4223432,,1914.5250054980002,497.94820770800004,6438.9854445,3.996463632553e-09
+Element_6,tm_2_dummy,Floors,Superstructure,07 - Thermal and Moisture Protection,"PVC membrane, sheet",[A1-A3] Product,2256.289681,101.533035645,-2.256289681,,1.5681213282950002,0.597916765465,13.154168840230001,1.825338351929e-11
+Element_7,tm_2_dummy,Floors,Superstructure,07 - Thermal and Moisture Protection,"Adhesive, polychloroprene (neoprene)",[A1-A3] Product,122.469949,1.469639388,0.0,,0.022779410514,0.008707613373899999,0.19105312044,2.6575978933000003e-13
+Element_8,tm_2_dummy,Floors,Superstructure,07 - Thermal and Moisture Protection,"PIR rigid foam insulation, roof, R=15, PIMA - EPD",[A1-A3] Product,6096.050734,,,,,,,
+Element_9,tm_2_dummy,Floors,Superstructure,03 - Concrete,"Lightweight concrete, 3000 psi, 20% fly ash",[A1-A3] Product,191203.223,7648.12892,0.0,,17.4950949045,0.88718295472,347.98986586,6.9597973172e-10
+Element_10,tm_2_dummy,Floors,Superstructure,03 - Concrete,"Steel, reinforcing rod",[A1-A3] Product,3127.029369,40.651381797,0.0,,0.19074879150899998,0.009662520750209999,3.7837055364899994,7.59868136667e-12
+Element_11,tm_2_dummy,Floors,Superstructure,06 - Wood/Plastics/Composites,CLT (Cross laminated timber),[A1-A3] Product,107316.4241,53228.946353600004,71258.1056024,,478.63125148600005,124.487051956,1609.7463615,9.99115908371e-10
+Element_12,tm_2_dummy,Floors,Substructure,03 - Concrete,"Structural concrete, 4000 psi, 20% fly ash",[A1-A3] Product,353252.5258,14130.101032,0.0,,32.3226061107,1.6390917197119999,642.919596956,1.285839193912e-09
+Element_13,tm_2_dummy,Floors,Substructure,03 - Concrete,"Steel, reinforcing rod",[A1-A3] Product,6919.221465,89.94987904499999,0.0,,0.42207250936499996,0.02138039432685,8.372257972649999,1.681370815995e-11
+Element_14,tm_2_dummy,Floors,Substructure,07 - Thermal and Moisture Protection,"Expanded polystyrene (EPS), board",[A1-A3] Product,160.3866191,7.217397859499999,-0.1603866191,,0.1114687002745,0.042502454061499995,0.935053989353,1.2975277485189999e-12
+Element_15,tm_2_dummy,Structural Columns,Superstructure,06 - Wood/Plastics/Composites,"Glue laminated timber (Glulam), AWC - EPD",[A1-A3] Product,41625.84161,,,,,,,
+Element_16,tm_2_dummy,Structural Foundations,Substructure,03 - Concrete,"Structural concrete, 4000 psi, 20% fly ash",[A1-A3] Product,175841.2573,7033.650292,0.0,,16.08947504295,0.8159034338719999,320.031088286,6.40062176572e-10
+Element_17,tm_2_dummy,Structural Foundations,Substructure,03 - Concrete,"Steel, reinforcing rod",[A1-A3] Product,2537.189455,32.983462915000004,0.0,,0.154768556755,0.007839915415950001,3.06999924055,6.16537037565e-12
+Element_18,tm_2_dummy,Structural Foundations,Substructure,03 - Concrete,"Structural concrete, 4000 psi, 20% fly ash",[A1-A3] Product,123088.8801,4923.555204,0.0,,11.26263252915,0.571132403664,224.021761782,4.48043523564e-10
+Element_19,tm_2_dummy,Structural Foundations,Substructure,03 - Concrete,"Steel, reinforcing rod",[A1-A3] Product,1776.032618,23.088424034,0.0,,0.108337989698,0.00548794078962,2.14899946778,4.31575926174e-12
+Element_20,tm_2_dummy,Structural Framing,Superstructure,06 - Wood/Plastics/Composites,"Glue laminated timber (Glulam), AWC - EPD",[A1-A3] Product,264754.7337,,,,,,,
+Element_21,tm_2_dummy,Structural Framing,Superstructure,06 - Wood/Plastics/Composites,"Glue laminated timber (Glulam), AWC - EPD",[A1-A3] Product,112333.5436,,,,,,,
+Element_22,tm_2_dummy,Walls,Enclosure,03 - Concrete,"Structural concrete, 6000 psi, Pacific Southwest regional average",[A1-A3] Product,653458.1668,26138.326672,0.0,,59.7914222622,3.0320458939519996,1189.293863576,2.378587727152e-09
+Element_23,tm_2_dummy,Walls,Enclosure,03 - Concrete,"Steel, reinforcing rod",[A1-A3] Product,77470.33798,1007.1143937399999,0.0,,4.72569061678,0.2393833443582,93.73910895579999,1.8825292129139998e-10
+Element_24,tm_2_dummy,Walls,Enclosure,07 - Thermal and Moisture Protection,"Aluminum, sheet",[A1-A3] Product,2947.796819,5.895593638,0.0,,0.030067527553800003,0.0015181153617850002,0.595454957438,1.1938577116950002e-12
+Element_25,tm_2_dummy,Walls,Enclosure,07 - Thermal and Moisture Protection,"Powder coating, metal stock",[A1-A3] Product,731.498137,32.917416165,-0.7314981370000001,,0.148494121811,0.0075344308111000005,2.94793749211,5.9178199283300004e-12
+Element_26,tm_2_dummy,Walls,Enclosure,07 - Thermal and Moisture Protection,Polyurethane foam (PUR) rigid board,[A1-A3] Product,2286.775714,,,,,,,
+Element_27,tm_2_dummy,Walls,Enclosure,07 - Thermal and Moisture Protection,"Steel, sheet",[A1-A3] Product,6357.712898,6.357712898,0.0,,0.02466792604424,0.001252469440906,0.4889081218562,9.790877862919998e-13
+Element_28,tm_2_dummy,Walls,Enclosure,07 - Thermal and Moisture Protection,"Fasteners, stainless steel",[A1-A3] Product,1650.559899,1.650559899,0.0,,0.00671777878893,0.000340015339194,0.1332001838493,2.67390703638e-13
+Element_29,tm_2_dummy,Walls,Enclosure,09 - Finishes,Fiberglass mat gypsum sheathing board,[A1-A3] Product,18381.23524,827.1555858,-18.381235240000002,,3.7313907537200004,0.189326722972,74.0763780172,1.4870419309160001e-10
+Element_30,tm_2_dummy,Walls,Enclosure,05 - Metals,Cold formed structural steel,[A1-A3] Product,7135.263235,,,,,,,
+Element_31,tm_2_dummy,Walls,Enclosure,05 - Metals,"Cellulose insulation, boards",[A1-A3] Product,15245.17143,4954.68071475,2469.71777166,,51.3762277191,26.679050002500002,121.35156458280001,1.233334368687e-10
+Element_32,tm_2_dummy,Walls,Enclosure,09 - Finishes,"Wall board, gypsum, natural",[A1-A3] Product,19056.46429,857.5408930499999,-19.05646429,,3.86846225087,0.19628158218699998,76.79755108869999,1.541667961061e-10
+Element_33,tm_2_dummy,Walls,Enclosure,09 - Finishes,"Paint, interior acrylic latex",[A1-A3] Product,366.3063575,,,,,,,

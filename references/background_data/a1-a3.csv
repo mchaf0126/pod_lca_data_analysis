@@ -1,4 +1,4 @@
-﻿id_PODLCA,Name_generic,Reference Unit,Description,density,Stored Carbon C02eq/kg,acp_mfg,eup_mfg,GWPf_mfg,GWPb_mfg,GWP-LULUC,odp_mfg,smg_mfg,,
+﻿id_PODLCA,Name_generic,Reference Unit,Description,density,Stored Carbon C02eq/kg,acp_mfg,eup_mfg,GWPf_mfg,GWPb_mfg,GWP-LULUC_mfg,odp_mfg,smg_mfg,,
 0,None,kg,"This entry acts as a dummy material, carrying no environmental impacts, for use in cases when there is ""no finish"" or ""no added material"" designated.",0.000,0.000,0,0,0.000,0.000,,0,0,,
 1,"Steel, reinforcing rod",kg,Common unfinished tempered steel rod suitable for structural reinforcement (rebar),7850.000,0.000,0.00804,0.000242,1.910,-0.010,,-8.61E-09,0.0953,,
 2,"Steel, welded wire mesh",kg,Steel rods further processed into wires appropriate for welded wire mesh reinforcement,7850.000,0.000,0.00789,0.000285,2.620,-0.010,,-1.22E-08,0.102,,
