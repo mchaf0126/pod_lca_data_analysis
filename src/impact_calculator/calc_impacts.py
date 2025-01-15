@@ -18,7 +18,7 @@ def calculate_impacts():
         impact_directory = tm_directory.joinpath(f'{template_model}/impacts')
         dict_of_impact_calculators = {
             'product': ic.ProductImpactCalculator(template_model),
-            # 'transportation': ic.TransportationImpactCalculator(template_model),
+            'transportation': ic.TransportationImpactCalculator(template_model),
             # 'replacement': ic.ReplacementImpactCalculator(template_model),
             'end-of-life': ic.EndOfLifeImpactCalculator(template_model),
             # 'module D': ic.ModuleDImpactCalculator(template_model),
