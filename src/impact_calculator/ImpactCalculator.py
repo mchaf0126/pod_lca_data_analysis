@@ -125,18 +125,20 @@ class EndOfLifeImpactCalculator(ImpactCalculator):
     def calculate_impacts(self):
 
         main_directory = Path(__file__).parents[2]
-        EOL_impact_data_file = main_directory.joinpath('references/background_data/c2-c4.csv')
-        self.load_background_dataset(EOL_impact_data_file)
+        eol_impact_data_file = main_directory.joinpath('references/background_data/c2-c4.xlsx')
+        self.load_background_dataset(eol_impact_data_file)
 
         self.impacts = pd.merge(
             self.bill_of_materials,
-            self.background_dataset[['Name_generic'] + [impact_cat + '_eol' for impact_cat in self.impacts_map.values()]],
+            self.background_dataset[['Name_Tally Material'] + [impact_cat + '_eol' for impact_cat in self.impacts_map.values()]],
             left_on='Tally material',
-            right_on='Name_generic',
+            right_on='Name_Tally Material',
             how='left'
         ).drop(
-            "Name_generic",
+            "Name_Tally Material",
             axis=1
+        ).assign(
+            life_cycle_stage="End-of-life: C2-C4"
         )
 
         for impact_name, impact_df_name in self.impacts_map.items():
