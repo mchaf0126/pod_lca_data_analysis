@@ -125,8 +125,8 @@ class EndOfLifeImpactCalculator(ImpactCalculator):
     def calculate_impacts(self):
 
         main_directory = Path(__file__).parents[2]
-        EOL_impact_data_file = main_directory.joinpath('references/background_data/c2-c4.xlsx')
-        self.load_background_dataset(EOL_impact_data_file)
+        eol_impact_data_file = main_directory.joinpath('references/background_data/c2-c4.xlsx')
+        self.load_background_dataset(eol_impact_data_file)
 
         self.impacts = pd.merge(
             self.bill_of_materials,
