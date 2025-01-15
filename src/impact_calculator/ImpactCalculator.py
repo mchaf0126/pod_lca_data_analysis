@@ -137,6 +137,8 @@ class EndOfLifeImpactCalculator(ImpactCalculator):
         ).drop(
             "Name_Tally Material",
             axis=1
+        ).assign(
+            life_cycle_stage="End-of-life: C2-C4"
         )
 
         for impact_name, impact_df_name in self.impacts_map.items():
