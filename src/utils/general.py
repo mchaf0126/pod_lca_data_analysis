@@ -54,11 +54,40 @@ def read_csv(file_path: Path) -> pd.DataFrame:
     try:
         df = pd.read_csv(
             file_path,
+            encoding='utf-8'
         )
     except PermissionError as pe:
         raise PermissionError('Try closing out the file you are trying to read') from pe
     except IOError as io:
         raise IOError("Trouble reading csv file") from io
+    except Exception as e:
+        raise Exception("An unknown error has occured") from e
+
+    return df
+
+
+def read_excel(file_path: Path) -> pd.DataFrame:
+    """Read excel files for general use.
+
+    Args:
+        file_path (Path): file path of excel to read
+
+    Raises:
+        PermissionError: Raised if function does not have permission to access file
+        IOError: Raised if file cannot be read
+        Exception: General exception just in case
+
+    Returns:
+        pd.DataFrame: DataFrame of read excel file
+    """
+    try:
+        df = pd.read_excel(
+            file_path,
+        )
+    except PermissionError as pe:
+        raise PermissionError('Try closing out the file you are trying to read') from pe
+    except IOError as io:
+        raise IOError("Trouble reading excel file") from io
     except Exception as e:
         raise Exception("An unknown error has occured") from e
 

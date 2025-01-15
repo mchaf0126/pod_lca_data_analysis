@@ -53,7 +53,7 @@ in bill of materials directory'
         Args:
             file_path (Path): _description_
         """
-        background_df = gen.read_csv(file_path)
+        background_df = gen.read_excel(file_path)
         self.background_dataset = background_df
 
     @abstractmethod
@@ -81,23 +81,25 @@ class ProductImpactCalculator(ImpactCalculator):
     def calculate_impacts(self):
 
         main_directory = Path(__file__).parents[2]
-        product_impact_data_file = main_directory.joinpath('references/background_data/a1-a3.csv')
+        product_impact_data_file = main_directory.joinpath('references/background_data/a1-a3.xlsx')
         self.load_background_dataset(product_impact_data_file)
 
         self.impacts = pd.merge(
             self.bill_of_materials,
-            self.background_dataset[['Name_generic'] + [impact_cat + '_mfg' for impact_cat in self.impacts_map.values()]],
-            left_on='Material Name',
-            right_on='Name_generic',
+            self.background_dataset[['Name_Tally Material'] + [impact_cat + '_mfg' for impact_cat in self.impacts_map.values()]],
+            left_on='Tally material',
+            right_on='Name_Tally Material',
             how='left'
         ).drop(
-            "Name_generic",
+            "Name_Tally Material",
             axis=1
+        ).assign(
+            life_cycle_stage="Product: A1-A3"
         )
 
         for impact_name, impact_df_name in self.impacts_map.items():
             self.impacts[impact_name] = \
-                self.impacts[impact_df_name + '_mfg'] * self.impacts['Mass Total (kg)']
+                self.impacts[impact_df_name + '_mfg'] * self.impacts['Weight (kg)']
             self.impacts.drop(impact_df_name + '_mfg', axis=1, inplace=True)
 
         return self.impacts
@@ -128,8 +130,8 @@ class EndOfLifeImpactCalculator(ImpactCalculator):
 
         self.impacts = pd.merge(
             self.bill_of_materials,
-            self.background_dataset[['Name_generic'] + [impact_cat + '_eol' for impact_cat in self.impacts_map.values()]], #FIXME: issue with the impact_map names
-            left_on='Material Name',
+            self.background_dataset[['Name_generic'] + [impact_cat + '_eol' for impact_cat in self.impacts_map.values()]],
+            left_on='Tally material',
             right_on='Name_generic',
             how='left'
         ).drop(
@@ -139,7 +141,7 @@ class EndOfLifeImpactCalculator(ImpactCalculator):
 
         for impact_name, impact_df_name in self.impacts_map.items():
             self.impacts[impact_name] = \
-                self.impacts[impact_df_name + '_eol'] * self.impacts['Mass Total (kg)']
+                self.impacts[impact_df_name + '_eol'] * self.impacts['Weight (kg)']
             self.impacts.drop(impact_df_name + '_eol', axis=1, inplace=True)
 
         return self.impacts
