@@ -1,91 +1,91 @@
-template_model	building_use_type	project_area	building_height	location	stories_above_grade	stories_below_grade	bay_size	str_vert_grav_sys	str_horiz_grav_sys	str_lat_sys	cladding_type	glazing_type	roofing_type	wwr						
-STR1_ENCO1_ENCT1_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	30'x30'	Steel: Columns	Steel: Frame + Concrete on Metal Deck	Concrete: Shear Walls	Curtain wall: steel spandrel	"Glazing, double pane IGU"	EPDM roofing	33%						
-STR1_ENCO1_ENCT2_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	30'x30'	Steel: Columns	Steel: Frame + Concrete on Metal Deck	Concrete: Shear Walls	Curtain wall: steel spandrel	"Glazing, triple pane IGU"	EPDM roofing	33%						
-STR1_ENCO1_ENCT3_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	30'x30'	Steel: Columns	Steel: Frame + Concrete on Metal Deck	Concrete: Shear Walls	Curtain wall: steel spandrel	Operable window	EPDM roofing	33%						
-STR1_ENCO2_ENCT1_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	30'x30'	Steel: Columns	Steel: Frame + Concrete on Metal Deck	Concrete: Shear Walls	Curtain wall: aluminum spandrel	"Glazing, double pane IGU"	EPDM roofing	33%						
-STR1_ENCO2_ENCT2_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	30'x30'	Steel: Columns	Steel: Frame + Concrete on Metal Deck	Concrete: Shear Walls	Curtain wall: aluminum spandrel	"Glazing, triple pane IGU"	EPDM roofing	33%						
-STR1_ENCO2_ENCT3_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	30'x30'	Steel: Columns	Steel: Frame + Concrete on Metal Deck	Concrete: Shear Walls	Curtain wall: aluminum spandrel	Operable window	EPDM roofing	33%						
-STR1_ENCO3_ENCT1_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	30'x30'	Steel: Columns	Steel: Frame + Concrete on Metal Deck	Concrete: Shear Walls	MV: brick	"Glazing, double pane IGU"	EPDM roofing	33%						
-STR1_ENCO3_ENCT2_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	30'x30'	Steel: Columns	Steel: Frame + Concrete on Metal Deck	Concrete: Shear Walls	MV: brick	"Glazing, triple pane IGU"	EPDM roofing	33%						
-STR1_ENCO3_ENCT3_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	30'x30'	Steel: Columns	Steel: Frame + Concrete on Metal Deck	Concrete: Shear Walls	MV: brick	Operable window	EPDM roofing	33%						
-STR1_ENCO4_ENCT1_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	30'x30'	Steel: Columns	Steel: Frame + Concrete on Metal Deck	Concrete: Shear Walls	MV: granite	"Glazing, double pane IGU"	EPDM roofing	33%						
-STR1_ENCO4_ENCT2_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	30'x30'	Steel: Columns	Steel: Frame + Concrete on Metal Deck	Concrete: Shear Walls	MV: granite	"Glazing, triple pane IGU"	EPDM roofing	33%						
-STR1_ENCO4_ENCT3_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	30'x30'	Steel: Columns	Steel: Frame + Concrete on Metal Deck	Concrete: Shear Walls	MV: granite	Operable window	EPDM roofing	33%						
-STR1_ENCO5_ENCT1_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	30'x30'	Steel: Columns	Steel: Frame + Concrete on Metal Deck	Concrete: Shear Walls	Insulated metal panel	"Glazing, double pane IGU"	EPDM roofing	33%						
-STR1_ENCO5_ENCT2_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	30'x30'	Steel: Columns	Steel: Frame + Concrete on Metal Deck	Concrete: Shear Walls	Insulated metal panel	"Glazing, triple pane IGU"	EPDM roofing	33%						
-STR1_ENCO5_ENCT3_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	30'x30'	Steel: Columns	Steel: Frame + Concrete on Metal Deck	Concrete: Shear Walls	Insulated metal panel	Operable window	EPDM roofing	33%						
-STR1_ENCO6_ENCT1_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	30'x30'	Steel: Columns	Steel: Frame + Concrete on Metal Deck	Concrete: Shear Walls	EIFS (XPS)	"Glazing, double pane IGU"	EPDM roofing	33%						
-STR1_ENCO6_ENCT2_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	30'x30'	Steel: Columns	Steel: Frame + Concrete on Metal Deck	Concrete: Shear Walls	EIFS (XPS)	"Glazing, triple pane IGU"	EPDM roofing	33%						
-STR1_ENCO6_ENCT3_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	30'x30'	Steel: Columns	Steel: Frame + Concrete on Metal Deck	Concrete: Shear Walls	EIFS (XPS)	Operable window	EPDM roofing	33%						
-STR1_ENCO7_ENCT1_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	30'x30'	Steel: Columns	Steel: Frame + Concrete on Metal Deck	Concrete: Shear Walls	Rainscreen: GFRC	"Glazing, double pane IGU"	EPDM roofing	33%						
-STR1_ENCO7_ENCT2_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	30'x30'	Steel: Columns	Steel: Frame + Concrete on Metal Deck	Concrete: Shear Walls	Rainscreen: GFRC	"Glazing, triple pane IGU"	EPDM roofing	33%						
-STR1_ENCO7_ENCT3_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	30'x30'	Steel: Columns	Steel: Frame + Concrete on Metal Deck	Concrete: Shear Walls	Rainscreen: GFRC	Operable window	EPDM roofing	33%						
-STR1_ENCO8_ENCT1_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	30'x30'	Steel: Columns	Steel: Frame + Concrete on Metal Deck	Concrete: Shear Walls	Rainscreen: thin brick	"Glazing, double pane IGU"	EPDM roofing	33%						
-STR1_ENCO8_ENCT2_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	30'x30'	Steel: Columns	Steel: Frame + Concrete on Metal Deck	Concrete: Shear Walls	Rainscreen: thin brick	"Glazing, triple pane IGU"	EPDM roofing	33%						
-STR1_ENCO8_ENCT3_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	30'x30'	Steel: Columns	Steel: Frame + Concrete on Metal Deck	Concrete: Shear Walls	Rainscreen: thin brick	Operable window	EPDM roofing	33%						
-STR1_ENCO9_ENCT1_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	30'x30'	Steel: Columns	Steel: Frame + Concrete on Metal Deck	Concrete: Shear Walls	Rainscreen: wood	"Glazing, double pane IGU"	EPDM roofing	33%						
-STR1_ENCO9_ENCT2_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	30'x30'	Steel: Columns	Steel: Frame + Concrete on Metal Deck	Concrete: Shear Walls	Rainscreen: wood	"Glazing, triple pane IGU"	EPDM roofing	33%						
-STR1_ENCO9_ENCT3_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	30'x30'	Steel: Columns	Steel: Frame + Concrete on Metal Deck	Concrete: Shear Walls	Rainscreen: wood	Operable window	EPDM roofing	33%						
-STR1_ENCO10_ENCT1_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	30'x30'	Steel: Columns	Steel: Frame + Concrete on Metal Deck	Concrete: Shear Walls	Rainscreen: formed steel panel	"Glazing, double pane IGU"	EPDM roofing	33%						
-STR1_ENCO10_ENCT2_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	30'x30'	Steel: Columns	Steel: Frame + Concrete on Metal Deck	Concrete: Shear Walls	Rainscreen: formed steel panel	"Glazing, triple pane IGU"	EPDM roofing	33%						
-STR1_ENCO10_ENCT3_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	30'x30'	Steel: Columns	Steel: Frame + Concrete on Metal Deck	Concrete: Shear Walls	Rainscreen: formed steel panel	Operable window	EPDM roofing	33%						
-STR2_ENCO1_ENCT1_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	30'x30'	Concrete: CIP	Concrete: Non-PT Framing	Concrete: Shear Walls	Curtain wall: steel spandrel	"Glazing, double pane IGU"	EPDM roofing	33%						
-STR2_ENCO1_ENCT2_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	30'x30'	Concrete: CIP	Concrete: Non-PT Framing	Concrete: Shear Walls	Curtain wall: steel spandrel	"Glazing, triple pane IGU"	EPDM roofing	33%						
-STR2_ENCO1_ENCT3_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	30'x30'	Concrete: CIP	Concrete: Non-PT Framing	Concrete: Shear Walls	Curtain wall: steel spandrel	Operable window	EPDM roofing	33%						
-STR2_ENCO2_ENCT1_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	30'x30'	Concrete: CIP	Concrete: Non-PT Framing	Concrete: Shear Walls	Curtain wall: aluminum spandrel	"Glazing, double pane IGU"	EPDM roofing	33%						
-STR2_ENCO2_ENCT2_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	30'x30'	Concrete: CIP	Concrete: Non-PT Framing	Concrete: Shear Walls	Curtain wall: aluminum spandrel	"Glazing, triple pane IGU"	EPDM roofing	33%						
-STR2_ENCO2_ENCT3_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	30'x30'	Concrete: CIP	Concrete: Non-PT Framing	Concrete: Shear Walls	Curtain wall: aluminum spandrel	Operable window	EPDM roofing	33%						
-STR2_ENCO3_ENCT1_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	30'x30'	Concrete: CIP	Concrete: Non-PT Framing	Concrete: Shear Walls	MV: brick	"Glazing, double pane IGU"	EPDM roofing	33%						
-STR2_ENCO3_ENCT2_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	30'x30'	Concrete: CIP	Concrete: Non-PT Framing	Concrete: Shear Walls	MV: brick	"Glazing, triple pane IGU"	EPDM roofing	33%						
-STR2_ENCO3_ENCT3_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	30'x30'	Concrete: CIP	Concrete: Non-PT Framing	Concrete: Shear Walls	MV: brick	Operable window	EPDM roofing	33%						
-STR2_ENCO4_ENCT1_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	30'x30'	Concrete: CIP	Concrete: Non-PT Framing	Concrete: Shear Walls	MV: granite	"Glazing, double pane IGU"	EPDM roofing	33%						
-STR2_ENCO4_ENCT2_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	30'x30'	Concrete: CIP	Concrete: Non-PT Framing	Concrete: Shear Walls	MV: granite	"Glazing, triple pane IGU"	EPDM roofing	33%						
-STR2_ENCO4_ENCT3_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	30'x30'	Concrete: CIP	Concrete: Non-PT Framing	Concrete: Shear Walls	MV: granite	Operable window	EPDM roofing	33%						
-STR2_ENCO5_ENCT1_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	30'x30'	Concrete: CIP	Concrete: Non-PT Framing	Concrete: Shear Walls	Insulated metal panel	"Glazing, double pane IGU"	EPDM roofing	33%						
-STR2_ENCO5_ENCT2_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	30'x30'	Concrete: CIP	Concrete: Non-PT Framing	Concrete: Shear Walls	Insulated metal panel	"Glazing, triple pane IGU"	EPDM roofing	33%						
-STR2_ENCO5_ENCT3_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	30'x30'	Concrete: CIP	Concrete: Non-PT Framing	Concrete: Shear Walls	Insulated metal panel	Operable window	EPDM roofing	33%						
-STR2_ENCO6_ENCT1_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	30'x30'	Concrete: CIP	Concrete: Non-PT Framing	Concrete: Shear Walls	EIFS (XPS)	"Glazing, double pane IGU"	EPDM roofing	33%						
-STR2_ENCO6_ENCT2_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	30'x30'	Concrete: CIP	Concrete: Non-PT Framing	Concrete: Shear Walls	EIFS (XPS)	"Glazing, triple pane IGU"	EPDM roofing	33%						
-STR2_ENCO6_ENCT3_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	30'x30'	Concrete: CIP	Concrete: Non-PT Framing	Concrete: Shear Walls	EIFS (XPS)	Operable window	EPDM roofing	33%						
-STR2_ENCO7_ENCT1_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	30'x30'	Concrete: CIP	Concrete: Non-PT Framing	Concrete: Shear Walls	Rainscreen: GFRC	"Glazing, double pane IGU"	EPDM roofing	33%						
-STR2_ENCO7_ENCT2_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	30'x30'	Concrete: CIP	Concrete: Non-PT Framing	Concrete: Shear Walls	Rainscreen: GFRC	"Glazing, triple pane IGU"	EPDM roofing	33%						
-STR2_ENCO7_ENCT3_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	30'x30'	Concrete: CIP	Concrete: Non-PT Framing	Concrete: Shear Walls	Rainscreen: GFRC	Operable window	EPDM roofing	33%						
-STR2_ENCO8_ENCT1_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	30'x30'	Concrete: CIP	Concrete: Non-PT Framing	Concrete: Shear Walls	Rainscreen: thin brick	"Glazing, double pane IGU"	EPDM roofing	33%						
-STR2_ENCO8_ENCT2_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	30'x30'	Concrete: CIP	Concrete: Non-PT Framing	Concrete: Shear Walls	Rainscreen: thin brick	"Glazing, triple pane IGU"	EPDM roofing	33%						
-STR2_ENCO8_ENCT3_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	30'x30'	Concrete: CIP	Concrete: Non-PT Framing	Concrete: Shear Walls	Rainscreen: thin brick	Operable window	EPDM roofing	33%						
-STR2_ENCO9_ENCT1_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	30'x30'	Concrete: CIP	Concrete: Non-PT Framing	Concrete: Shear Walls	Rainscreen: wood	"Glazing, double pane IGU"	EPDM roofing	33%						
-STR2_ENCO9_ENCT2_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	30'x30'	Concrete: CIP	Concrete: Non-PT Framing	Concrete: Shear Walls	Rainscreen: wood	"Glazing, triple pane IGU"	EPDM roofing	33%						
-STR2_ENCO9_ENCT3_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	30'x30'	Concrete: CIP	Concrete: Non-PT Framing	Concrete: Shear Walls	Rainscreen: wood	Operable window	EPDM roofing	33%						
-STR2_ENCO10_ENCT1_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	30'x30'	Concrete: CIP	Concrete: Non-PT Framing	Concrete: Shear Walls	Rainscreen: formed steel panel	"Glazing, double pane IGU"	EPDM roofing	33%						
-STR2_ENCO10_ENCT2_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	30'x30'	Concrete: CIP	Concrete: Non-PT Framing	Concrete: Shear Walls	Rainscreen: formed steel panel	"Glazing, triple pane IGU"	EPDM roofing	33%						
-STR2_ENCO10_ENCT3_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	30'x30'	Concrete: CIP	Concrete: Non-PT Framing	Concrete: Shear Walls	Rainscreen: formed steel panel	Operable window	EPDM roofing	33%						
-STR3_ENCO1_ENCT1_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	25'x25'	Wood: Mass Timber	Wood: Engineered Panels	Concrete: Shear Walls	Curtain wall: steel spandrel	"Glazing, double pane IGU"	EPDM roofing	33%						
-STR3_ENCO1_ENCT2_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	25'x25'	Wood: Mass Timber	Wood: Engineered Panels	Concrete: Shear Walls	Curtain wall: steel spandrel	"Glazing, triple pane IGU"	EPDM roofing	33%						
-STR3_ENCO1_ENCT3_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	25'x25'	Wood: Mass Timber	Wood: Engineered Panels	Concrete: Shear Walls	Curtain wall: steel spandrel	Operable window	EPDM roofing	33%						
-STR3_ENCO2_ENCT1_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	25'x25'	Wood: Mass Timber	Wood: Engineered Panels	Concrete: Shear Walls	Curtain wall: aluminum spandrel	"Glazing, double pane IGU"	EPDM roofing	33%						
-STR3_ENCO2_ENCT2_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	25'x25'	Wood: Mass Timber	Wood: Engineered Panels	Concrete: Shear Walls	Curtain wall: aluminum spandrel	"Glazing, triple pane IGU"	EPDM roofing	33%						
-STR3_ENCO2_ENCT3_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	25'x25'	Wood: Mass Timber	Wood: Engineered Panels	Concrete: Shear Walls	Curtain wall: aluminum spandrel	Operable window	EPDM roofing	33%						
-STR3_ENCO3_ENCT1_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	25'x25'	Wood: Mass Timber	Wood: Engineered Panels	Concrete: Shear Walls	MV: brick	"Glazing, double pane IGU"	EPDM roofing	33%						
-STR3_ENCO3_ENCT2_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	25'x25'	Wood: Mass Timber	Wood: Engineered Panels	Concrete: Shear Walls	MV: brick	"Glazing, triple pane IGU"	EPDM roofing	33%						
-STR3_ENCO3_ENCT3_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	25'x25'	Wood: Mass Timber	Wood: Engineered Panels	Concrete: Shear Walls	MV: brick	Operable window	EPDM roofing	33%						
-STR3_ENCO4_ENCT1_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	25'x25'	Wood: Mass Timber	Wood: Engineered Panels	Concrete: Shear Walls	MV: granite	"Glazing, double pane IGU"	EPDM roofing	33%						
-STR3_ENCO4_ENCT2_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	25'x25'	Wood: Mass Timber	Wood: Engineered Panels	Concrete: Shear Walls	MV: granite	"Glazing, triple pane IGU"	EPDM roofing	33%						
-STR3_ENCO4_ENCT3_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	25'x25'	Wood: Mass Timber	Wood: Engineered Panels	Concrete: Shear Walls	MV: granite	Operable window	EPDM roofing	33%						
-STR3_ENCO5_ENCT1_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	25'x25'	Wood: Mass Timber	Wood: Engineered Panels	Concrete: Shear Walls	Insulated metal panel	"Glazing, double pane IGU"	EPDM roofing	33%						
-STR3_ENCO5_ENCT2_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	25'x25'	Wood: Mass Timber	Wood: Engineered Panels	Concrete: Shear Walls	Insulated metal panel	"Glazing, triple pane IGU"	EPDM roofing	33%						
-STR3_ENCO5_ENCT3_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	25'x25'	Wood: Mass Timber	Wood: Engineered Panels	Concrete: Shear Walls	Insulated metal panel	Operable window	EPDM roofing	33%						
-STR3_ENCO6_ENCT1_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	25'x25'	Wood: Mass Timber	Wood: Engineered Panels	Concrete: Shear Walls	EIFS (XPS)	"Glazing, double pane IGU"	EPDM roofing	33%						
-STR3_ENCO6_ENCT2_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	25'x25'	Wood: Mass Timber	Wood: Engineered Panels	Concrete: Shear Walls	EIFS (XPS)	"Glazing, triple pane IGU"	EPDM roofing	33%						
-STR3_ENCO6_ENCT3_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	25'x25'	Wood: Mass Timber	Wood: Engineered Panels	Concrete: Shear Walls	EIFS (XPS)	Operable window	EPDM roofing	33%						
-STR3_ENCO7_ENCT1_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	25'x25'	Wood: Mass Timber	Wood: Engineered Panels	Concrete: Shear Walls	Rainscreen: GFRC	"Glazing, double pane IGU"	EPDM roofing	33%						
-STR3_ENCO7_ENCT2_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	25'x25'	Wood: Mass Timber	Wood: Engineered Panels	Concrete: Shear Walls	Rainscreen: GFRC	"Glazing, triple pane IGU"	EPDM roofing	33%						
-STR3_ENCO7_ENCT3_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	25'x25'	Wood: Mass Timber	Wood: Engineered Panels	Concrete: Shear Walls	Rainscreen: GFRC	Operable window	EPDM roofing	33%						
-STR3_ENCO8_ENCT1_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	25'x25'	Wood: Mass Timber	Wood: Engineered Panels	Concrete: Shear Walls	Rainscreen: thin brick	"Glazing, double pane IGU"	EPDM roofing	33%						
-STR3_ENCO8_ENCT2_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	25'x25'	Wood: Mass Timber	Wood: Engineered Panels	Concrete: Shear Walls	Rainscreen: thin brick	"Glazing, triple pane IGU"	EPDM roofing	33%						
-STR3_ENCO8_ENCT3_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	25'x25'	Wood: Mass Timber	Wood: Engineered Panels	Concrete: Shear Walls	Rainscreen: thin brick	Operable window	EPDM roofing	33%						
-STR3_ENCO9_ENCT1_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	25'x25'	Wood: Mass Timber	Wood: Engineered Panels	Concrete: Shear Walls	Rainscreen: wood	"Glazing, double pane IGU"	EPDM roofing	33%						
-STR3_ENCO9_ENCT2_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	25'x25'	Wood: Mass Timber	Wood: Engineered Panels	Concrete: Shear Walls	Rainscreen: wood	"Glazing, triple pane IGU"	EPDM roofing	33%						
-STR3_ENCO9_ENCT3_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	25'x25'	Wood: Mass Timber	Wood: Engineered Panels	Concrete: Shear Walls	Rainscreen: wood	Operable window	EPDM roofing	33%						
-STR3_ENCO10_ENCT1_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	25'x25'	Wood: Mass Timber	Wood: Engineered Panels	Concrete: Shear Walls	Rainscreen: formed steel panel	"Glazing, double pane IGU"	EPDM roofing	33%						
-STR3_ENCO10_ENCT2_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	25'x25'	Wood: Mass Timber	Wood: Engineered Panels	Concrete: Shear Walls	Rainscreen: formed steel panel	"Glazing, triple pane IGU"	EPDM roofing	33%						
-STR3_ENCO10_ENCT3_ENCR1	Office	108000	62	"Los Angeles, CA"	6	0	25'x25'	Wood: Mass Timber	Wood: Engineered Panels	Concrete: Shear Walls	Rainscreen: formed steel panel	Operable window	EPDM roofing	33%						
+template_model,building_use_type,project_area,building_height,city,state,stories_above_grade,stories_below_grade,bay_size,str_vert_grav_sys,str_horiz_grav_sys,str_lat_sys,cladding_type,glazing_type,roofing_type,wwr
+STR1_ENCO1_ENCT1_ENCR1,Office,108000,62,Los Angeles,California,6,0,30'x30',Steel: Columns,Steel: Frame + Concrete on Metal Deck,Concrete: Shear Walls,Curtain wall: steel spandrel,Glazing,EPDM roofing,33%
+STR1_ENCO1_ENCT2_ENCR1,Office,108000,62,Los Angeles,California,6,0,30'x30',Steel: Columns,Steel: Frame + Concrete on Metal Deck,Concrete: Shear Walls,Curtain wall: steel spandrel,Glazing,EPDM roofing,33%
+STR1_ENCO1_ENCT3_ENCR1,Office,108000,62,Los Angeles,California,6,0,30'x30',Steel: Columns,Steel: Frame + Concrete on Metal Deck,Concrete: Shear Walls,Curtain wall: steel spandrel,Operable window,EPDM roofing,33%
+STR1_ENCO2_ENCT1_ENCR1,Office,108000,62,Los Angeles,California,6,0,30'x30',Steel: Columns,Steel: Frame + Concrete on Metal Deck,Concrete: Shear Walls,Curtain wall: aluminum spandrel,Glazing,EPDM roofing,33%
+STR1_ENCO2_ENCT2_ENCR1,Office,108000,62,Los Angeles,California,6,0,30'x30',Steel: Columns,Steel: Frame + Concrete on Metal Deck,Concrete: Shear Walls,Curtain wall: aluminum spandrel,Glazing,EPDM roofing,33%
+STR1_ENCO2_ENCT3_ENCR1,Office,108000,62,Los Angeles,California,6,0,30'x30',Steel: Columns,Steel: Frame + Concrete on Metal Deck,Concrete: Shear Walls,Curtain wall: aluminum spandrel,Operable window,EPDM roofing,33%
+STR1_ENCO3_ENCT1_ENCR1,Office,108000,62,Los Angeles,California,6,0,30'x30',Steel: Columns,Steel: Frame + Concrete on Metal Deck,Concrete: Shear Walls,MV: brick,Glazing,EPDM roofing,33%
+STR1_ENCO3_ENCT2_ENCR1,Office,108000,62,Los Angeles,California,6,0,30'x30',Steel: Columns,Steel: Frame + Concrete on Metal Deck,Concrete: Shear Walls,MV: brick,Glazing,EPDM roofing,33%
+STR1_ENCO3_ENCT3_ENCR1,Office,108000,62,Los Angeles,California,6,0,30'x30',Steel: Columns,Steel: Frame + Concrete on Metal Deck,Concrete: Shear Walls,MV: brick,Operable window,EPDM roofing,33%
+STR1_ENCO4_ENCT1_ENCR1,Office,108000,62,Los Angeles,California,6,0,30'x30',Steel: Columns,Steel: Frame + Concrete on Metal Deck,Concrete: Shear Walls,MV: granite,Glazing,EPDM roofing,33%
+STR1_ENCO4_ENCT2_ENCR1,Office,108000,62,Los Angeles,California,6,0,30'x30',Steel: Columns,Steel: Frame + Concrete on Metal Deck,Concrete: Shear Walls,MV: granite,Glazing,EPDM roofing,33%
+STR1_ENCO4_ENCT3_ENCR1,Office,108000,62,Los Angeles,California,6,0,30'x30',Steel: Columns,Steel: Frame + Concrete on Metal Deck,Concrete: Shear Walls,MV: granite,Operable window,EPDM roofing,33%
+STR1_ENCO5_ENCT1_ENCR1,Office,108000,62,Los Angeles,California,6,0,30'x30',Steel: Columns,Steel: Frame + Concrete on Metal Deck,Concrete: Shear Walls,Insulated metal panel,Glazing,EPDM roofing,33%
+STR1_ENCO5_ENCT2_ENCR1,Office,108000,62,Los Angeles,California,6,0,30'x30',Steel: Columns,Steel: Frame + Concrete on Metal Deck,Concrete: Shear Walls,Insulated metal panel,Glazing,EPDM roofing,33%
+STR1_ENCO5_ENCT3_ENCR1,Office,108000,62,Los Angeles,California,6,0,30'x30',Steel: Columns,Steel: Frame + Concrete on Metal Deck,Concrete: Shear Walls,Insulated metal panel,Operable window,EPDM roofing,33%
+STR1_ENCO6_ENCT1_ENCR1,Office,108000,62,Los Angeles,California,6,0,30'x30',Steel: Columns,Steel: Frame + Concrete on Metal Deck,Concrete: Shear Walls,EIFS (XPS),Glazing,EPDM roofing,33%
+STR1_ENCO6_ENCT2_ENCR1,Office,108000,62,Los Angeles,California,6,0,30'x30',Steel: Columns,Steel: Frame + Concrete on Metal Deck,Concrete: Shear Walls,EIFS (XPS),Glazing,EPDM roofing,33%
+STR1_ENCO6_ENCT3_ENCR1,Office,108000,62,Los Angeles,California,6,0,30'x30',Steel: Columns,Steel: Frame + Concrete on Metal Deck,Concrete: Shear Walls,EIFS (XPS),Operable window,EPDM roofing,33%
+STR1_ENCO7_ENCT1_ENCR1,Office,108000,62,Los Angeles,California,6,0,30'x30',Steel: Columns,Steel: Frame + Concrete on Metal Deck,Concrete: Shear Walls,Rainscreen: GFRC,Glazing,EPDM roofing,33%
+STR1_ENCO7_ENCT2_ENCR1,Office,108000,62,Los Angeles,California,6,0,30'x30',Steel: Columns,Steel: Frame + Concrete on Metal Deck,Concrete: Shear Walls,Rainscreen: GFRC,Glazing,EPDM roofing,33%
+STR1_ENCO7_ENCT3_ENCR1,Office,108000,62,Los Angeles,California,6,0,30'x30',Steel: Columns,Steel: Frame + Concrete on Metal Deck,Concrete: Shear Walls,Rainscreen: GFRC,Operable window,EPDM roofing,33%
+STR1_ENCO8_ENCT1_ENCR1,Office,108000,62,Los Angeles,California,6,0,30'x30',Steel: Columns,Steel: Frame + Concrete on Metal Deck,Concrete: Shear Walls,Rainscreen: thin brick,Glazing,EPDM roofing,33%
+STR1_ENCO8_ENCT2_ENCR1,Office,108000,62,Los Angeles,California,6,0,30'x30',Steel: Columns,Steel: Frame + Concrete on Metal Deck,Concrete: Shear Walls,Rainscreen: thin brick,Glazing,EPDM roofing,33%
+STR1_ENCO8_ENCT3_ENCR1,Office,108000,62,Los Angeles,California,6,0,30'x30',Steel: Columns,Steel: Frame + Concrete on Metal Deck,Concrete: Shear Walls,Rainscreen: thin brick,Operable window,EPDM roofing,33%
+STR1_ENCO9_ENCT1_ENCR1,Office,108000,62,Los Angeles,California,6,0,30'x30',Steel: Columns,Steel: Frame + Concrete on Metal Deck,Concrete: Shear Walls,Rainscreen: wood,Glazing,EPDM roofing,33%
+STR1_ENCO9_ENCT2_ENCR1,Office,108000,62,Los Angeles,California,6,0,30'x30',Steel: Columns,Steel: Frame + Concrete on Metal Deck,Concrete: Shear Walls,Rainscreen: wood,Glazing,EPDM roofing,33%
+STR1_ENCO9_ENCT3_ENCR1,Office,108000,62,Los Angeles,California,6,0,30'x30',Steel: Columns,Steel: Frame + Concrete on Metal Deck,Concrete: Shear Walls,Rainscreen: wood,Operable window,EPDM roofing,33%
+STR1_ENCO10_ENCT1_ENCR1,Office,108000,62,Los Angeles,California,6,0,30'x30',Steel: Columns,Steel: Frame + Concrete on Metal Deck,Concrete: Shear Walls,Rainscreen: formed steel panel,Glazing,EPDM roofing,33%
+STR1_ENCO10_ENCT2_ENCR1,Office,108000,62,Los Angeles,California,6,0,30'x30',Steel: Columns,Steel: Frame + Concrete on Metal Deck,Concrete: Shear Walls,Rainscreen: formed steel panel,Glazing,EPDM roofing,33%
+STR1_ENCO10_ENCT3_ENCR1,Office,108000,62,Los Angeles,California,6,0,30'x30',Steel: Columns,Steel: Frame + Concrete on Metal Deck,Concrete: Shear Walls,Rainscreen: formed steel panel,Operable window,EPDM roofing,33%
+STR2_ENCO1_ENCT1_ENCR1,Office,108000,62,Los Angeles,California,6,0,30'x30',Concrete: CIP,Concrete: Non-PT Framing,Concrete: Shear Walls,Curtain wall: steel spandrel,Glazing,EPDM roofing,33%
+STR2_ENCO1_ENCT2_ENCR1,Office,108000,62,Los Angeles,California,6,0,30'x30',Concrete: CIP,Concrete: Non-PT Framing,Concrete: Shear Walls,Curtain wall: steel spandrel,Glazing,EPDM roofing,33%
+STR2_ENCO1_ENCT3_ENCR1,Office,108000,62,Los Angeles,California,6,0,30'x30',Concrete: CIP,Concrete: Non-PT Framing,Concrete: Shear Walls,Curtain wall: steel spandrel,Operable window,EPDM roofing,33%
+STR2_ENCO2_ENCT1_ENCR1,Office,108000,62,Los Angeles,California,6,0,30'x30',Concrete: CIP,Concrete: Non-PT Framing,Concrete: Shear Walls,Curtain wall: aluminum spandrel,Glazing,EPDM roofing,33%
+STR2_ENCO2_ENCT2_ENCR1,Office,108000,62,Los Angeles,California,6,0,30'x30',Concrete: CIP,Concrete: Non-PT Framing,Concrete: Shear Walls,Curtain wall: aluminum spandrel,Glazing,EPDM roofing,33%
+STR2_ENCO2_ENCT3_ENCR1,Office,108000,62,Los Angeles,California,6,0,30'x30',Concrete: CIP,Concrete: Non-PT Framing,Concrete: Shear Walls,Curtain wall: aluminum spandrel,Operable window,EPDM roofing,33%
+STR2_ENCO3_ENCT1_ENCR1,Office,108000,62,Los Angeles,California,6,0,30'x30',Concrete: CIP,Concrete: Non-PT Framing,Concrete: Shear Walls,MV: brick,Glazing,EPDM roofing,33%
+STR2_ENCO3_ENCT2_ENCR1,Office,108000,62,Los Angeles,California,6,0,30'x30',Concrete: CIP,Concrete: Non-PT Framing,Concrete: Shear Walls,MV: brick,Glazing,EPDM roofing,33%
+STR2_ENCO3_ENCT3_ENCR1,Office,108000,62,Los Angeles,California,6,0,30'x30',Concrete: CIP,Concrete: Non-PT Framing,Concrete: Shear Walls,MV: brick,Operable window,EPDM roofing,33%
+STR2_ENCO4_ENCT1_ENCR1,Office,108000,62,Los Angeles,California,6,0,30'x30',Concrete: CIP,Concrete: Non-PT Framing,Concrete: Shear Walls,MV: granite,Glazing,EPDM roofing,33%
+STR2_ENCO4_ENCT2_ENCR1,Office,108000,62,Los Angeles,California,6,0,30'x30',Concrete: CIP,Concrete: Non-PT Framing,Concrete: Shear Walls,MV: granite,Glazing,EPDM roofing,33%
+STR2_ENCO4_ENCT3_ENCR1,Office,108000,62,Los Angeles,California,6,0,30'x30',Concrete: CIP,Concrete: Non-PT Framing,Concrete: Shear Walls,MV: granite,Operable window,EPDM roofing,33%
+STR2_ENCO5_ENCT1_ENCR1,Office,108000,62,Los Angeles,California,6,0,30'x30',Concrete: CIP,Concrete: Non-PT Framing,Concrete: Shear Walls,Insulated metal panel,Glazing,EPDM roofing,33%
+STR2_ENCO5_ENCT2_ENCR1,Office,108000,62,Los Angeles,California,6,0,30'x30',Concrete: CIP,Concrete: Non-PT Framing,Concrete: Shear Walls,Insulated metal panel,Glazing,EPDM roofing,33%
+STR2_ENCO5_ENCT3_ENCR1,Office,108000,62,Los Angeles,California,6,0,30'x30',Concrete: CIP,Concrete: Non-PT Framing,Concrete: Shear Walls,Insulated metal panel,Operable window,EPDM roofing,33%
+STR2_ENCO6_ENCT1_ENCR1,Office,108000,62,Los Angeles,California,6,0,30'x30',Concrete: CIP,Concrete: Non-PT Framing,Concrete: Shear Walls,EIFS (XPS),Glazing,EPDM roofing,33%
+STR2_ENCO6_ENCT2_ENCR1,Office,108000,62,Los Angeles,California,6,0,30'x30',Concrete: CIP,Concrete: Non-PT Framing,Concrete: Shear Walls,EIFS (XPS),Glazing,EPDM roofing,33%
+STR2_ENCO6_ENCT3_ENCR1,Office,108000,62,Los Angeles,California,6,0,30'x30',Concrete: CIP,Concrete: Non-PT Framing,Concrete: Shear Walls,EIFS (XPS),Operable window,EPDM roofing,33%
+STR2_ENCO7_ENCT1_ENCR1,Office,108000,62,Los Angeles,California,6,0,30'x30',Concrete: CIP,Concrete: Non-PT Framing,Concrete: Shear Walls,Rainscreen: GFRC,Glazing,EPDM roofing,33%
+STR2_ENCO7_ENCT2_ENCR1,Office,108000,62,Los Angeles,California,6,0,30'x30',Concrete: CIP,Concrete: Non-PT Framing,Concrete: Shear Walls,Rainscreen: GFRC,Glazing,EPDM roofing,33%
+STR2_ENCO7_ENCT3_ENCR1,Office,108000,62,Los Angeles,California,6,0,30'x30',Concrete: CIP,Concrete: Non-PT Framing,Concrete: Shear Walls,Rainscreen: GFRC,Operable window,EPDM roofing,33%
+STR2_ENCO8_ENCT1_ENCR1,Office,108000,62,Los Angeles,California,6,0,30'x30',Concrete: CIP,Concrete: Non-PT Framing,Concrete: Shear Walls,Rainscreen: thin brick,Glazing,EPDM roofing,33%
+STR2_ENCO8_ENCT2_ENCR1,Office,108000,62,Los Angeles,California,6,0,30'x30',Concrete: CIP,Concrete: Non-PT Framing,Concrete: Shear Walls,Rainscreen: thin brick,Glazing,EPDM roofing,33%
+STR2_ENCO8_ENCT3_ENCR1,Office,108000,62,Los Angeles,California,6,0,30'x30',Concrete: CIP,Concrete: Non-PT Framing,Concrete: Shear Walls,Rainscreen: thin brick,Operable window,EPDM roofing,33%
+STR2_ENCO9_ENCT1_ENCR1,Office,108000,62,Los Angeles,California,6,0,30'x30',Concrete: CIP,Concrete: Non-PT Framing,Concrete: Shear Walls,Rainscreen: wood,Glazing,EPDM roofing,33%
+STR2_ENCO9_ENCT2_ENCR1,Office,108000,62,Los Angeles,California,6,0,30'x30',Concrete: CIP,Concrete: Non-PT Framing,Concrete: Shear Walls,Rainscreen: wood,Glazing,EPDM roofing,33%
+STR2_ENCO9_ENCT3_ENCR1,Office,108000,62,Los Angeles,California,6,0,30'x30',Concrete: CIP,Concrete: Non-PT Framing,Concrete: Shear Walls,Rainscreen: wood,Operable window,EPDM roofing,33%
+STR2_ENCO10_ENCT1_ENCR1,Office,108000,62,Los Angeles,California,6,0,30'x30',Concrete: CIP,Concrete: Non-PT Framing,Concrete: Shear Walls,Rainscreen: formed steel panel,Glazing,EPDM roofing,33%
+STR2_ENCO10_ENCT2_ENCR1,Office,108000,62,Los Angeles,California,6,0,30'x30',Concrete: CIP,Concrete: Non-PT Framing,Concrete: Shear Walls,Rainscreen: formed steel panel,Glazing,EPDM roofing,33%
+STR2_ENCO10_ENCT3_ENCR1,Office,108000,62,Los Angeles,California,6,0,30'x30',Concrete: CIP,Concrete: Non-PT Framing,Concrete: Shear Walls,Rainscreen: formed steel panel,Operable window,EPDM roofing,33%
+STR3_ENCO1_ENCT1_ENCR1,Office,108000,62,Los Angeles,California,6,0,25'x25',Wood: Mass Timber,Wood: Engineered Panels,Concrete: Shear Walls,Curtain wall: steel spandrel,Glazing,EPDM roofing,33%
+STR3_ENCO1_ENCT2_ENCR1,Office,108000,62,Los Angeles,California,6,0,25'x25',Wood: Mass Timber,Wood: Engineered Panels,Concrete: Shear Walls,Curtain wall: steel spandrel,Glazing,EPDM roofing,33%
+STR3_ENCO1_ENCT3_ENCR1,Office,108000,62,Los Angeles,California,6,0,25'x25',Wood: Mass Timber,Wood: Engineered Panels,Concrete: Shear Walls,Curtain wall: steel spandrel,Operable window,EPDM roofing,33%
+STR3_ENCO2_ENCT1_ENCR1,Office,108000,62,Los Angeles,California,6,0,25'x25',Wood: Mass Timber,Wood: Engineered Panels,Concrete: Shear Walls,Curtain wall: aluminum spandrel,Glazing,EPDM roofing,33%
+STR3_ENCO2_ENCT2_ENCR1,Office,108000,62,Los Angeles,California,6,0,25'x25',Wood: Mass Timber,Wood: Engineered Panels,Concrete: Shear Walls,Curtain wall: aluminum spandrel,Glazing,EPDM roofing,33%
+STR3_ENCO2_ENCT3_ENCR1,Office,108000,62,Los Angeles,California,6,0,25'x25',Wood: Mass Timber,Wood: Engineered Panels,Concrete: Shear Walls,Curtain wall: aluminum spandrel,Operable window,EPDM roofing,33%
+STR3_ENCO3_ENCT1_ENCR1,Office,108000,62,Los Angeles,California,6,0,25'x25',Wood: Mass Timber,Wood: Engineered Panels,Concrete: Shear Walls,MV: brick,Glazing,EPDM roofing,33%
+STR3_ENCO3_ENCT2_ENCR1,Office,108000,62,Los Angeles,California,6,0,25'x25',Wood: Mass Timber,Wood: Engineered Panels,Concrete: Shear Walls,MV: brick,Glazing,EPDM roofing,33%
+STR3_ENCO3_ENCT3_ENCR1,Office,108000,62,Los Angeles,California,6,0,25'x25',Wood: Mass Timber,Wood: Engineered Panels,Concrete: Shear Walls,MV: brick,Operable window,EPDM roofing,33%
+STR3_ENCO4_ENCT1_ENCR1,Office,108000,62,Los Angeles,California,6,0,25'x25',Wood: Mass Timber,Wood: Engineered Panels,Concrete: Shear Walls,MV: granite,Glazing,EPDM roofing,33%
+STR3_ENCO4_ENCT2_ENCR1,Office,108000,62,Los Angeles,California,6,0,25'x25',Wood: Mass Timber,Wood: Engineered Panels,Concrete: Shear Walls,MV: granite,Glazing,EPDM roofing,33%
+STR3_ENCO4_ENCT3_ENCR1,Office,108000,62,Los Angeles,California,6,0,25'x25',Wood: Mass Timber,Wood: Engineered Panels,Concrete: Shear Walls,MV: granite,Operable window,EPDM roofing,33%
+STR3_ENCO5_ENCT1_ENCR1,Office,108000,62,Los Angeles,California,6,0,25'x25',Wood: Mass Timber,Wood: Engineered Panels,Concrete: Shear Walls,Insulated metal panel,Glazing,EPDM roofing,33%
+STR3_ENCO5_ENCT2_ENCR1,Office,108000,62,Los Angeles,California,6,0,25'x25',Wood: Mass Timber,Wood: Engineered Panels,Concrete: Shear Walls,Insulated metal panel,Glazing,EPDM roofing,33%
+STR3_ENCO5_ENCT3_ENCR1,Office,108000,62,Los Angeles,California,6,0,25'x25',Wood: Mass Timber,Wood: Engineered Panels,Concrete: Shear Walls,Insulated metal panel,Operable window,EPDM roofing,33%
+STR3_ENCO6_ENCT1_ENCR1,Office,108000,62,Los Angeles,California,6,0,25'x25',Wood: Mass Timber,Wood: Engineered Panels,Concrete: Shear Walls,EIFS (XPS),Glazing,EPDM roofing,33%
+STR3_ENCO6_ENCT2_ENCR1,Office,108000,62,Los Angeles,California,6,0,25'x25',Wood: Mass Timber,Wood: Engineered Panels,Concrete: Shear Walls,EIFS (XPS),Glazing,EPDM roofing,33%
+STR3_ENCO6_ENCT3_ENCR1,Office,108000,62,Los Angeles,California,6,0,25'x25',Wood: Mass Timber,Wood: Engineered Panels,Concrete: Shear Walls,EIFS (XPS),Operable window,EPDM roofing,33%
+STR3_ENCO7_ENCT1_ENCR1,Office,108000,62,Los Angeles,California,6,0,25'x25',Wood: Mass Timber,Wood: Engineered Panels,Concrete: Shear Walls,Rainscreen: GFRC,Glazing,EPDM roofing,33%
+STR3_ENCO7_ENCT2_ENCR1,Office,108000,62,Los Angeles,California,6,0,25'x25',Wood: Mass Timber,Wood: Engineered Panels,Concrete: Shear Walls,Rainscreen: GFRC,Glazing,EPDM roofing,33%
+STR3_ENCO7_ENCT3_ENCR1,Office,108000,62,Los Angeles,California,6,0,25'x25',Wood: Mass Timber,Wood: Engineered Panels,Concrete: Shear Walls,Rainscreen: GFRC,Operable window,EPDM roofing,33%
+STR3_ENCO8_ENCT1_ENCR1,Office,108000,62,Los Angeles,California,6,0,25'x25',Wood: Mass Timber,Wood: Engineered Panels,Concrete: Shear Walls,Rainscreen: thin brick,Glazing,EPDM roofing,33%
+STR3_ENCO8_ENCT2_ENCR1,Office,108000,62,Los Angeles,California,6,0,25'x25',Wood: Mass Timber,Wood: Engineered Panels,Concrete: Shear Walls,Rainscreen: thin brick,Glazing,EPDM roofing,33%
+STR3_ENCO8_ENCT3_ENCR1,Office,108000,62,Los Angeles,California,6,0,25'x25',Wood: Mass Timber,Wood: Engineered Panels,Concrete: Shear Walls,Rainscreen: thin brick,Operable window,EPDM roofing,33%
+STR3_ENCO9_ENCT1_ENCR1,Office,108000,62,Los Angeles,California,6,0,25'x25',Wood: Mass Timber,Wood: Engineered Panels,Concrete: Shear Walls,Rainscreen: wood,Glazing,EPDM roofing,33%
+STR3_ENCO9_ENCT2_ENCR1,Office,108000,62,Los Angeles,California,6,0,25'x25',Wood: Mass Timber,Wood: Engineered Panels,Concrete: Shear Walls,Rainscreen: wood,Glazing,EPDM roofing,33%
+STR3_ENCO9_ENCT3_ENCR1,Office,108000,62,Los Angeles,California,6,0,25'x25',Wood: Mass Timber,Wood: Engineered Panels,Concrete: Shear Walls,Rainscreen: wood,Operable window,EPDM roofing,33%
+STR3_ENCO10_ENCT1_ENCR1,Office,108000,62,Los Angeles,California,6,0,25'x25',Wood: Mass Timber,Wood: Engineered Panels,Concrete: Shear Walls,Rainscreen: formed steel panel,Glazing,EPDM roofing,33%
+STR3_ENCO10_ENCT2_ENCR1,Office,108000,62,Los Angeles,California,6,0,25'x25',Wood: Mass Timber,Wood: Engineered Panels,Concrete: Shear Walls,Rainscreen: formed steel panel,Glazing,EPDM roofing,33%
+STR3_ENCO10_ENCT3_ENCR1,Office,108000,62,Los Angeles,California,6,0,25'x25',Wood: Mass Timber,Wood: Engineered Panels,Concrete: Shear Walls,Rainscreen: formed steel panel,Operable window,EPDM roofing,33%
