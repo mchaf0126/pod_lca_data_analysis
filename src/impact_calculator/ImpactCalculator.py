@@ -132,7 +132,7 @@ class EndOfLifeImpactCalculator(ImpactCalculator):
             self.bill_of_materials,
             self.background_dataset[['Name_Tally Material'] + [impact_cat + '_eol' for impact_cat in self.impacts_map.values()]],
             left_on='Tally material',
-            right_on='Name_Tally Materialc',
+            right_on='Name_Tally Material',
             how='left'
         ).drop(
             "Name_Tally Material",
