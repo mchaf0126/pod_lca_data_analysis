@@ -103,8 +103,6 @@ class ProductImpactCalculator(ImpactCalculator):
                 self.impacts[impact_df_name + '_mfg'] * self.impacts['Weight (kg)']
             self.impacts.drop(impact_df_name + '_mfg', axis=1, inplace=True)
 
-        return self.impacts
-
 
 @dataclass
 class TransportationImpactCalculator(ImpactCalculator):
@@ -188,29 +186,63 @@ class ReplacementImpactCalculator(ImpactCalculator):
     def calculate_impacts(self):
 
         model_name = self.template_model_name
-
         main_directory = Path(__file__).parents[2]
-        a1a3_impact_data_file = main_directory.joinpath(f'data/template_models/{model_name}/impacts/{model_name}_product_impacts.csv')
-        a4_impact_data_file = main_directory.joinpath(f'data/template_models/{model_name}/impacts/{model_name}_transportation_impacts.csv')
-        a5_impact_data_file = main_directory.joinpath(f'data/template_models/{model_name}/impacts/{model_name}_construction_impacts.csv')
-        c1_c4_impact_data_file = main_directory.joinpath(f'data/template_models/{model_name}/impacts/{model_name}_end-of-life_impacts.csv')
-        d_impact_data_file = main_directory.joinpath(f'data/template_models/{model_name}/impacts/{model_name}_module D_impacts.csv')
+        replacement_impact_data_file = main_directory.joinpath(
+            'references/background_data/b2-b5.xlsx'
+        )
+        self.load_background_dataset(replacement_impact_data_file)
 
-        a1a3_impact_data = gen.read_csv(a1a3_impact_data_file)
-        # a4_impact_data = gen.read_csv(a4_impact_data_file)
+        a1a3_impact_data_file = main_directory.joinpath(
+            f'data/template_models/{model_name}/impacts/{model_name}_product_impacts.csv'
+        )
+        a4_impact_data_file = main_directory.joinpath(
+            f'data/template_models/{model_name}/impacts/{model_name}_transportation_impacts.csv'
+        )
+        # a5_impact_data_file = main_directory.joinpath(
+        # f'data/template_models/{model_name}/impacts/{model_name}_construction_impacts.csv'
+        # )
+        c1_c4_impact_data_file = main_directory.joinpath(
+            f'data/template_models/{model_name}/impacts/{model_name}_end-of-life_impacts.csv'
+        )
+
+        a1a3_impact_data = gen.read_csv(a1a3_impact_data_file).set_index('element_index')
+        a4_impact_data = gen.read_csv(a4_impact_data_file).set_index('element_index')
         # a5_impact_data = gen.read_csv(a5_impact_data_file)
-        c1c4_impact_data = gen.read_csv(c1_c4_impact_data_file)
-        # d_impact_data = gen.read_csv(d_impact_data_file)
-        
-        stage_impact_data_list = [a1a3_impact_data, c1c4_impact_data] #a4_impact_data, a5_impact_data, d_impact_data #TODO: add as the other impact calculators are written
+        c1c4_impact_data = gen.read_csv(c1_c4_impact_data_file).set_index('element_index')
 
-        no_of_replacements = np.ceil(self.RSP / self.bill_of_materials['Service Life']) - 1 #FIXME: check if the Service Life will be in the BOM
-        b4_impacts = sum(df[list(self.impacts_map.keys())] for df in stage_impact_data_list).mul(no_of_replacements, axis=0)
+        temp_replacement_df = self.bill_of_materials.copy()
+        temp_replacement_df = temp_replacement_df.set_index('Assembly')
+        temp_replacement_df = temp_replacement_df.merge(
+            self.background_dataset,
+            left_index=True,
+            right_on='Assembly',
+            how='left',
+        ).assign(
+            life_cycle_stage="Replacement: B2-B5"
+        ).set_index('element_index')
+        temp_replacement_df['RSP'] = 60
+        temp_replacement_df['number_of_replacements'] = (
+            temp_replacement_df['RSP']
+            // temp_replacement_df['service_lives']
+        )
 
-        self.impacts = pd.concat([self.bill_of_materials, b4_impacts], axis=1)
+        b4_impacts = (
+            a1a3_impact_data[list(self.impacts_map.keys())]
+            + a4_impact_data[list(self.impacts_map.keys())]
+            + c1c4_impact_data[list(self.impacts_map.keys())]
+        ).mul(temp_replacement_df['number_of_replacements'], axis=0)
+        self.impacts = pd.merge(
+            left=temp_replacement_df,
+            right=b4_impacts,
+            left_index=True,
+            right_index=True
+        ).drop(columns=[
+            'service_lives',
+            'life_cycle_stage',
+            'RSP',
+            'number_of_replacements'
+        ]).reset_index()
 
-        return self.impacts
-    
 
 @dataclass
 class OperationalImpactCalculator(ImpactCalculator):
@@ -263,8 +295,6 @@ class EndOfLifeImpactCalculator(ImpactCalculator):
             self.impacts[impact_name] = \
                 self.impacts[impact_df_name + '_eol'] * self.impacts['Weight (kg)']
             self.impacts.drop(impact_df_name + '_eol', axis=1, inplace=True)
-
-        return self.impacts
 
 
 @dataclass
