@@ -183,6 +183,31 @@ class ReplacementImpactCalculator(ImpactCalculator):
 
 
 @dataclass
+class OperationalImpactCalculator(ImpactCalculator):
+    """Calculation of operational energy impacts for project."""
+    def calculate_impacts(self):
+        self.impacts = self.bill_of_materials.iloc[:1].copy()
+        self.impacts['Omiclass'] = '21-04 50 20'
+        self.impacts['L1'] = 'Services'
+        self.impacts['L2'] = 'Electrical'
+        self.impacts['L3'] = 'Electrical Service and Distribution'
+        self.impacts['Option'] = 'OP1'
+        self.impacts['Assembly'] = 'Operational energy'
+        self.impacts['Component'] = 'Operational energy'
+        self.impacts['Building Material_name'] = 'NA'
+        self.impacts['Tally material'] = 'NA'
+        self.impacts['Weight (kg)'] = 'NA'
+        self.impacts['Data Source'] = 'TM'
+        self.impacts['Acidification Potential'] = 20301
+        self.impacts['Eutrophication Potential'] = 1281
+        self.impacts['Smog Formation Potential'] = 245352
+        self.impacts['Ozone Depletion Potential'] = 0.0000095
+        self.impacts['Global Warming Potential_fossil'] = 6546607
+        self.impacts['Global Warming Potential_biogenic'] = 0
+        self.impacts['Global Warming Potential_luluc'] = None
+
+
+@dataclass
 class EndOfLifeImpactCalculator(ImpactCalculator):
     """Calculation of end-of-life impacts from bill of materials."""
     def calculate_impacts(self):
