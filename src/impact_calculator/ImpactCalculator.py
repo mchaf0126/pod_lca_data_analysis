@@ -2,7 +2,6 @@
 from dataclasses import dataclass, field
 from abc import abstractmethod
 from pathlib import Path
-import numpy as np
 import pandas as pd
 import src.utils.general as gen
 
@@ -172,6 +171,63 @@ class TransportationImpactCalculator(ImpactCalculator):
             )
 
         self.impacts = temp_df
+
+
+@dataclass
+class ConstructionImpactCalculator(ImpactCalculator):
+    """Calculation of construction impacts from WASTAGE ONLY. No construction activities.
+
+    """
+    def calculate_impacts(self):
+
+        model_name = self.template_model_name
+        main_directory = Path(__file__).parents[2]
+        construction_impact_data_file = main_directory.joinpath(
+            'references/background_data/a5_wastage.xlsx'
+        )
+        self.load_background_dataset(construction_impact_data_file)
+
+        a1a3_impact_data_file = main_directory.joinpath(
+            f'data/template_models/{model_name}/impacts/{model_name}_product_impacts.csv'
+        )
+        a4_impact_data_file = main_directory.joinpath(
+            f'data/template_models/{model_name}/impacts/{model_name}_transportation_impacts.csv'
+        )
+        c1_c4_impact_data_file = main_directory.joinpath(
+            f'data/template_models/{model_name}/impacts/{model_name}_end-of-life_impacts.csv'
+        )
+
+        a1a3_impact_data = gen.read_csv(a1a3_impact_data_file).set_index('element_index')
+        a4_impact_data = gen.read_csv(a4_impact_data_file).set_index('element_index')
+        c1c4_impact_data = gen.read_csv(c1_c4_impact_data_file).set_index('element_index')
+
+        temp_replacement_df = self.bill_of_materials.copy()
+        temp_replacement_df = temp_replacement_df.set_index('Building Material_name')
+        temp_replacement_df = temp_replacement_df.merge(
+            self.background_dataset,
+            left_index=True,
+            right_on='Building Material_name',
+            how='left',
+        ).assign(
+            life_cycle_stage="Construction: A5"
+        ).set_index('element_index')
+
+        a5_impacts = (
+            a1a3_impact_data[list(self.impacts_map.keys())]
+            + a4_impact_data[list(self.impacts_map.keys())]
+            + c1c4_impact_data[list(self.impacts_map.keys())]
+        ).mul(temp_replacement_df['wastage'], axis=0)
+        self.impacts = pd.merge(
+            left=temp_replacement_df,
+            right=a5_impacts,
+            left_index=True,
+            right_index=True
+        ).drop(
+            columns=[
+                'wastage',
+                'Unnamed: 2'
+            ]
+        ).reset_index()
 
 
 @dataclass
