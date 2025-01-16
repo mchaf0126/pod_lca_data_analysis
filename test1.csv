@@ -1,2 +1,0 @@
-,element_index,index,Building Type,Omiclass,L1,L2,L3,Option,Assembly,Component,Building Material_name,Tally material,Weight (kg),Data Source (Material Quantities)
-0,Element_0,26,Commercial,21-01 10 10,Substructure,Foundations,Standard Foundations,STR3,Column foundation,Concrete footing,"Normalweight Concrete, 4000 psi","Structural concrete, 4000 psi, 20% fly ash",201466,Calculated from takeoff from Revit
