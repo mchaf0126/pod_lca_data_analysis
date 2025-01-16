@@ -37,6 +37,7 @@ def create_data_for_frontend():
             for file in directory.glob("*.csv"):
                 temp_df = gen.read_csv(file)
                 temp_df = temp_df.set_index('element_index')
+                temp_df['template_model'] = template_model
                 lists_for_combining.get(list_for_dfs).append(temp_df)
 
     combined_bom = pd.concat(bill_of_materials_to_combine)

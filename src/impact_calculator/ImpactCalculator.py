@@ -294,7 +294,6 @@ class ReplacementImpactCalculator(ImpactCalculator):
             right_index=True
         ).drop(columns=[
             'service_lives',
-            'life_cycle_stage',
             'RSP',
             'number_of_replacements'
         ]).reset_index()
@@ -313,6 +312,7 @@ class OperationalImpactCalculator(ImpactCalculator):
         self.impacts['Assembly'] = 'Operational energy'
         self.impacts['Component'] = 'Operational energy'
         self.impacts['Building Material_name'] = 'NA'
+        self.impacts['life_cycle_stage'] = 'Operational energy: B6'
         self.impacts['Tally material'] = 'NA'
         self.impacts['Weight (kg)'] = 'NA'
         self.impacts['Data Source'] = 'TM'
