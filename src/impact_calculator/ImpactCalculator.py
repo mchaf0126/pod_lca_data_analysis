@@ -255,7 +255,7 @@ class ReplacementImpactCalculator(ImpactCalculator):
             f'data/template_models/{model_name}/impacts/{model_name}_transportation_impacts.csv'
         )
         a5_impact_data_file = main_directory.joinpath(
-        f'data/template_models/{model_name}/impacts/{model_name}_construction_impacts.csv'
+            f'data/template_models/{model_name}/impacts/{model_name}_construction_impacts.csv'
         )
         c1_c4_impact_data_file = main_directory.joinpath(
             f'data/template_models/{model_name}/impacts/{model_name}_end-of-life_impacts.csv'
@@ -298,11 +298,13 @@ class ReplacementImpactCalculator(ImpactCalculator):
             right=b4_impacts,
             left_index=True,
             right_index=True
-        ).drop(columns=[
-            'service_lives',
-            'RSP',
-            'number_of_replacements'
-        ]).reset_index()
+        ).drop(
+            columns=[
+                'service_lives',
+                'RSP',
+                'number_of_replacements'
+            ]
+        ).reset_index()
 
 
 @dataclass
