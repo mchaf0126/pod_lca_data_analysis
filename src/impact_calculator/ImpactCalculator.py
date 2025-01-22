@@ -280,7 +280,7 @@ class ReplacementImpactCalculator(ImpactCalculator):
         temp_replacement_df['number_of_replacements'] = (
             temp_replacement_df['RSP']
             // temp_replacement_df['service_lives']
-        )
+        ) - 1  # must subtract 1 because 60//60 = 1, and this would create 1 replacement
 
         b4_impacts = (
             a1a3_impact_data[list(self.impacts_map.keys())]
