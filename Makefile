@@ -4,7 +4,7 @@
 
 PROJECT_NAME = pod_lca_data_analysis
 PYTHON_VERSION = 3.10
-PYTHON_INTERPRETER = pod_da_pub/Scripts/python
+PYTHON_INTERPRETER = pod_da_venv/Scripts/python
 
 #################################################################################
 # COMMANDS                                                                      #
