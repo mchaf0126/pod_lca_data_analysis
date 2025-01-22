@@ -254,16 +254,16 @@ class ReplacementImpactCalculator(ImpactCalculator):
         a4_impact_data_file = main_directory.joinpath(
             f'data/template_models/{model_name}/impacts/{model_name}_transportation_impacts.csv'
         )
-        # a5_impact_data_file = main_directory.joinpath(
-        # f'data/template_models/{model_name}/impacts/{model_name}_construction_impacts.csv'
-        # )
+        a5_impact_data_file = main_directory.joinpath(
+        f'data/template_models/{model_name}/impacts/{model_name}_construction_impacts.csv'
+        )
         c1_c4_impact_data_file = main_directory.joinpath(
             f'data/template_models/{model_name}/impacts/{model_name}_end-of-life_impacts.csv'
         )
 
         a1a3_impact_data = gen.read_csv(a1a3_impact_data_file).set_index('element_index')
         a4_impact_data = gen.read_csv(a4_impact_data_file).set_index('element_index')
-        # a5_impact_data = gen.read_csv(a5_impact_data_file)
+        a5_impact_data = gen.read_csv(a5_impact_data_file).set_index('element_index')
         c1c4_impact_data = gen.read_csv(c1_c4_impact_data_file).set_index('element_index')
 
         temp_replacement_df = self.bill_of_materials.copy()
@@ -276,15 +276,21 @@ class ReplacementImpactCalculator(ImpactCalculator):
         ).assign(
             life_cycle_stage="Replacement: B2-B5"
         ).set_index('element_index')
-        temp_replacement_df['RSP'] = 60
+        temp_replacement_df['RSP'] = self.RSP
         temp_replacement_df['number_of_replacements'] = (
             temp_replacement_df['RSP']
             // temp_replacement_df['service_lives']
         )
+        # handle case where replacement year is 60, same as RSP, but 60 // 60 = 1
+        temp_replacement_df.loc[
+            temp_replacement_df['service_lives'] == self.RSP,
+            'number_of_replacements'
+        ] = 0
 
         b4_impacts = (
             a1a3_impact_data[list(self.impacts_map.keys())]
             + a4_impact_data[list(self.impacts_map.keys())]
+            + a5_impact_data[list(self.impacts_map.keys())]
             + c1c4_impact_data[list(self.impacts_map.keys())]
         ).mul(temp_replacement_df['number_of_replacements'], axis=0)
         self.impacts = pd.merge(
