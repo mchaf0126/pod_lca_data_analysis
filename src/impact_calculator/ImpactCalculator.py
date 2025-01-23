@@ -324,14 +324,14 @@ class OperationalImpactCalculator(ImpactCalculator):
         self.impacts['life_cycle_stage'] = 'Operational energy: B6'
         self.impacts['Tally material'] = 'NA'
         self.impacts['Weight (kg)'] = 'NA'
-        self.impacts['Data Source'] = 'TM'
+        self.impacts['Data Source (Material Quantities)'] = 'TM'
         self.impacts['Acidification Potential'] = 20301
         self.impacts['Eutrophication Potential'] = 1281
         self.impacts['Smog Formation Potential'] = 245352
         self.impacts['Ozone Depletion Potential'] = 0.0000095
         self.impacts['Global Warming Potential_fossil'] = 6546607
         self.impacts['Global Warming Potential_biogenic'] = 0
-        self.impacts['Global Warming Potential_luluc'] = None
+        self.impacts['Global Warming Potential_luluc'] = 0
 
 
 @dataclass
