@@ -165,12 +165,14 @@ class TransportationImpactCalculator(ImpactCalculator):
                 * (temp_df['Weight (kg)'] / 1000)
                 * trans_emissions.loc[truck_emissions_name, col_name]
                 * (temp_df[truck_distance_column] * mi_to_km_conversion)
-            ).drop(
-                'Tally dist_truck',
-                "Name_Tally Material",
-                axis=1
             )
 
+        temp_df = temp_df.drop(
+            columns=[
+                'Tally dist_truck',
+                "Name_Tally Material",
+            ]
+        )
         self.impacts = temp_df
 
 
