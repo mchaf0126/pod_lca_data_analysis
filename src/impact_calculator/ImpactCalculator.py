@@ -21,6 +21,7 @@ class ImpactCalculator:
             'Global Warming Potential_fossil': 'GWPf',
             'Global Warming Potential_biogenic': 'GWPb',
             'Global Warming Potential_luluc': 'GWP-LULUC',
+            'Stored Biogenic Carbon': 'stored_carbon',
             'Acidification Potential': 'acp',
             'Eutrophication Potential': 'eup',
             'Smog Formation Potential': 'smg',
@@ -237,7 +238,6 @@ class ConstructionImpactCalculator(ImpactCalculator):
         ).drop(
             columns=[
                 'wastage',
-                'Unnamed: 2'
             ]
         ).reset_index()
 
