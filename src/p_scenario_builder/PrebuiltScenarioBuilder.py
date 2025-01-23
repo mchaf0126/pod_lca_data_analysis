@@ -1,7 +1,9 @@
 # from pathlib import Path
 from dataclasses import dataclass
 from pathlib import Path
+import pandas as pd
 import src.impact_calculator.ImpactCalculator as ic
+import src.utils.general as gen
 
 
 @dataclass
@@ -9,7 +11,7 @@ class TransportationScenarioBuilder(ic.TransportationImpactCalculator):
     """Methods for creating a prebuilt scenario"""
     def calculate_impacts(self):
         # emission = mass of product * emission factor * distance * return factor
-        # implements rail and truck 
+        # implements rail and truck
         main_directory = Path(__file__).parents[2]
         transporation_emissions_file = main_directory.joinpath(
             'references/background_data/a4_emissions.xlsx'
@@ -109,12 +111,59 @@ class TransportationScenarioBuilder(ic.TransportationImpactCalculator):
         self.impacts = temp_df
 
 
-# @dataclass
-# class ConstructionScenarioBuilder(PrebuiltScenarioBuilder):
-#     """Methods for creating a prebuilt scenario"""
-#     # attributes
+@dataclass
+class ConstructionScenarioBuilder(ic.ConstructionImpactCalculator):
+    """Methods for creating a prebuilt scenario"""
+    def calculate_impacts(self):
 
-#     # methods
+        model_name = self.template_model_name
+        main_directory = Path(__file__).parents[2]
+        construction_impact_data_file = main_directory.joinpath(
+            'references/background_data/a5_wastage.xlsx'
+        )
+        self.load_background_dataset(construction_impact_data_file)
+
+        a1a3_impact_data_file = main_directory.joinpath(
+            f'data/template_models/{model_name}/impacts/{model_name}_product_impacts.csv'
+        )
+        a4_impact_data_file = main_directory.joinpath(
+            f'data/template_models/{model_name}/impacts/{model_name}_transportation_impacts.csv'
+        )
+        c1_c4_impact_data_file = main_directory.joinpath(
+            f'data/template_models/{model_name}/impacts/{model_name}_end-of-life_impacts.csv'
+        )
+
+        a1a3_impact_data = gen.read_csv(a1a3_impact_data_file).set_index('element_index')
+        a4_impact_data = gen.read_csv(a4_impact_data_file).set_index('element_index')
+        c1c4_impact_data = gen.read_csv(c1_c4_impact_data_file).set_index('element_index')
+
+        temp_replacement_df = self.bill_of_materials.copy()
+        temp_replacement_df = temp_replacement_df.set_index('Building Material_name')
+        temp_replacement_df = temp_replacement_df.merge(
+            self.background_dataset,
+            left_index=True,
+            right_on='Building Material_name',
+            how='left',
+        ).assign(
+            life_cycle_stage=self.lcs_map.get('constr')
+        ).set_index('element_index')
+
+        a5_impacts = (
+            a1a3_impact_data[list(self.impacts_map.keys())]
+            + a4_impact_data[list(self.impacts_map.keys())]
+            + c1c4_impact_data[list(self.impacts_map.keys())]
+        ).mul(temp_replacement_df['enhanced wastage'], axis=0)
+        self.impacts = pd.merge(
+            left=temp_replacement_df,
+            right=a5_impacts,
+            left_index=True,
+            right_index=True
+        ).drop(
+            columns=[
+                'wastage',
+                'enhanced wastage',
+            ]
+        ).reset_index()
 
 
 # @dataclass

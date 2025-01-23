@@ -17,7 +17,7 @@ def build_prebuilt_scenarios():
         dict_of_impact_calculators = {
             # 'product': psc.ProductImpactCalculator(template_model),
             'transportation': psc.TransportationScenarioBuilder(template_model),
-            # 'construction': ic.ConstructionImpactCalculator(template_model),
+            'construction': psc.ConstructionScenarioBuilder(template_model),
             # 'replacement': ic.ReplacementImpactCalculator(template_model),
             # 'operational': ic.OperationalImpactCalculator(template_model),
             # 'end-of-life': ic.EndOfLifeImpactCalculator(template_model),
