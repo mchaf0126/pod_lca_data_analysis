@@ -18,7 +18,7 @@ def build_prebuilt_scenarios():
             # 'product': psc.ProductImpactCalculator(template_model),
             'transportation': psc.TransportationScenarioBuilder(template_model),
             'construction': psc.ConstructionScenarioBuilder(template_model),
-            # 'replacement': ic.ReplacementImpactCalculator(template_model),
+            'replacement': psc.ReplacementScenarioBuilder(template_model),
             # 'operational': ic.OperationalImpactCalculator(template_model),
             # 'end-of-life': ic.EndOfLifeImpactCalculator(template_model),
             # 'module D': ic.ModuleDImpactCalculator(template_model),
