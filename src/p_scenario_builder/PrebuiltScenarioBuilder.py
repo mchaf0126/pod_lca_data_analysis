@@ -166,12 +166,80 @@ class ConstructionScenarioBuilder(ic.ConstructionImpactCalculator):
         ).reset_index()
 
 
-# @dataclass
-# class ReplacementScenarioBuilder(PrebuiltScenarioBuilder):
-#     """Methods for creating a prebuilt scenario"""
-#     # attributes
+@dataclass
+class ReplacementScenarioBuilder(ic.ReplacementImpactCalculator):
+    """Methods for creating a prebuilt scenario"""
+    RSP: int = 60
 
-#     # methods
+    def calculate_impacts(self):
+
+        model_name = self.template_model_name
+        main_directory = Path(__file__).parents[2]
+        # difference is using RICS
+        replacement_impact_data_file = main_directory.joinpath(
+            'references/background_data/RICS_service_life.xlsx'
+        )
+        self.load_background_dataset(replacement_impact_data_file)
+
+        a1a3_impact_data_file = main_directory.joinpath(
+            f'data/template_models/{model_name}/impacts/{model_name}_product_impacts.csv'
+        )
+        a4_impact_data_file = main_directory.joinpath(
+            f'data/template_models/{model_name}/impacts/{model_name}_transportation_impacts.csv'
+        )
+        a5_impact_data_file = main_directory.joinpath(
+            f'data/template_models/{model_name}/impacts/{model_name}_construction_impacts.csv'
+        )
+        c1_c4_impact_data_file = main_directory.joinpath(
+            f'data/template_models/{model_name}/impacts/{model_name}_end-of-life_impacts.csv'
+        )
+
+        a1a3_impact_data = gen.read_csv(a1a3_impact_data_file).set_index('element_index')
+        a4_impact_data = gen.read_csv(a4_impact_data_file).set_index('element_index')
+        a5_impact_data = gen.read_csv(a5_impact_data_file).set_index('element_index')
+        c1c4_impact_data = gen.read_csv(c1_c4_impact_data_file).set_index('element_index')
+
+        temp_replacement_df = self.bill_of_materials.copy()
+        temp_replacement_df = temp_replacement_df.set_index('Assembly')
+        temp_replacement_df = temp_replacement_df.merge(
+            self.background_dataset,
+            left_index=True,
+            right_on='Assembly',
+            how='left',
+        ).assign(
+            life_cycle_stage=self.lcs_map.get('repl')
+        ).set_index('element_index')
+        temp_replacement_df['RSP'] = self.RSP
+        temp_replacement_df['number_of_replacements'] = (
+            temp_replacement_df['RSP']
+            // temp_replacement_df['service_lives']
+        )
+        # handle case where replacement year is 60, same as RSP, but 60 // 60 = 1
+        temp_replacement_df.loc[
+            temp_replacement_df['service_lives'] == self.RSP,
+            'number_of_replacements'
+        ] = 0
+
+        b4_impacts = (
+            a1a3_impact_data[list(self.impacts_map.keys())]
+            + a4_impact_data[list(self.impacts_map.keys())]
+            + a5_impact_data[list(self.impacts_map.keys())]
+            + c1c4_impact_data[list(self.impacts_map.keys())]
+        ).mul(temp_replacement_df['number_of_replacements'], axis=0)
+        self.impacts = pd.merge(
+            left=temp_replacement_df,
+            right=b4_impacts,
+            left_index=True,
+            right_index=True
+        ).drop(
+            columns=[
+                'service_lives',
+                'RSP',
+                'number_of_replacements',
+                'id',
+                'type'
+            ]
+        ).reset_index()
 
 
 # @dataclass
