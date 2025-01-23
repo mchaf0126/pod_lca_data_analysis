@@ -18,19 +18,19 @@ def create_data_for_frontend():
 
     bill_of_materials_to_combine = []
     impacts_to_combine = []
-    # prebuilt_scenarios_to_combine = []
+    prebuilt_scenarios_to_combine = []
 
     lists_for_combining = {
         'bill_of_materials_to_combine': bill_of_materials_to_combine,
         'impacts_to_combine': impacts_to_combine,
-        # 'prebuilt_scenarios_to_combine': prebuilt_scenarios_to_combine
+        'prebuilt_scenarios_to_combine': prebuilt_scenarios_to_combine
     }
 
     for template_model in template_model_list:
         directories_per_tm = {
             'bill_of_materials_to_combine': main_directory.joinpath(f'data/template_models/{template_model}/bom'),
             'impacts_to_combine': main_directory.joinpath(f'data/template_models/{template_model}/impacts'),
-            # 'prebuilt_scenarios_to_combine': main_directory.joinpath(f'data/template_models/{template_model}/prebuilt_scenarios')
+            'prebuilt_scenarios_to_combine': main_directory.joinpath(f'data/template_models/{template_model}/prebuilt_scenarios')
         }
 
         for list_for_dfs, directory in directories_per_tm.items():
@@ -42,12 +42,12 @@ def create_data_for_frontend():
 
     combined_bom = pd.concat(bill_of_materials_to_combine)
     combined_impacts = pd.concat(impacts_to_combine)
-    # combined_prebuilt_scenarios = pd.concat(prebuilt_scenarios_to_combine)
+    combined_prebuilt_scenarios = pd.concat(prebuilt_scenarios_to_combine)
 
     files_to_write = {
         'combined_bom': combined_bom,
         'combined_impacts': combined_impacts,
-        # 'combined_prebuilt_scenarios': combined_prebuilt_scenarios
+        'combined_prebuilt_scenarios': combined_prebuilt_scenarios
     }
 
     for name, df in files_to_write.items():
