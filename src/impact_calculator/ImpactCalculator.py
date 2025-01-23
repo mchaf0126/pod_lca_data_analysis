@@ -14,6 +14,7 @@ class ImpactCalculator:
     background_dataset: pd.DataFrame = field(default=None)
     impacts: pd.DataFrame = field(default=None)
     impacts_map: dict = field(init=False)
+    lcs_map: dict = field(init=False)
 
     def __post_init__(self):
         self.impacts_map = {
@@ -24,6 +25,14 @@ class ImpactCalculator:
             'Eutrophication Potential': 'eup',
             'Smog Formation Potential': 'smg',
             'Ozone Depletion Potential': 'odp'
+        }
+        self.lcs_map = {
+            'product': 'A1-A3: Product',
+            'trans': 'A4: Transportation',
+            'constr': 'A5: Construction',
+            'repl': 'B2-B5: Replacement',
+            'op': 'B6: Operational Energy',
+            'eol': 'C2-C4: End-of-life'
         }
 
     def load_bill_of_materials(self) -> None:
@@ -94,7 +103,7 @@ class ProductImpactCalculator(ImpactCalculator):
             "Name_Tally Material",
             axis=1
         ).assign(
-            life_cycle_stage="Product: A1-A3"
+            life_cycle_stage=self.lcs_map.get('product')
         )
 
         for impact_name, impact_df_name in self.impacts_map.items():
@@ -148,7 +157,7 @@ class TransportationImpactCalculator(ImpactCalculator):
             right_on='Name_Tally Material',
             how='left'
         ).assign(
-            life_cycle_stage="Transportation: A4"
+            life_cycle_stage=self.lcs_map.get('trans')
         )
 
         for name, col_name in self.impacts_map.items():
@@ -212,7 +221,7 @@ class ConstructionImpactCalculator(ImpactCalculator):
             right_on='Building Material_name',
             how='left',
         ).assign(
-            life_cycle_stage="Construction: A5"
+            life_cycle_stage=self.lcs_map.get('constr')
         ).set_index('element_index')
 
         a5_impacts = (
@@ -277,7 +286,7 @@ class ReplacementImpactCalculator(ImpactCalculator):
             right_on='Assembly',
             how='left',
         ).assign(
-            life_cycle_stage="Replacement: B2-B5"
+            life_cycle_stage=self.lcs_map.get('repl')
         ).set_index('element_index')
         temp_replacement_df['RSP'] = self.RSP
         temp_replacement_df['number_of_replacements'] = (
@@ -323,7 +332,7 @@ class OperationalImpactCalculator(ImpactCalculator):
         self.impacts['Assembly'] = 'Operational energy'
         self.impacts['Component'] = 'Operational energy'
         self.impacts['Building Material_name'] = 'NA'
-        self.impacts['life_cycle_stage'] = 'Operational energy: B6'
+        self.impacts['life_cycle_stage'] = self.lcs_map.get('op')
         self.impacts['Tally material'] = 'NA'
         self.impacts['Weight (kg)'] = 'NA'
         self.impacts['Data Source (Material Quantities)'] = 'TM'
@@ -355,7 +364,7 @@ class EndOfLifeImpactCalculator(ImpactCalculator):
             "Name_Tally Material",
             axis=1
         ).assign(
-            life_cycle_stage="End-of-life: C2-C4"
+            life_cycle_stage=self.lcs_map.get('eol')
         )
 
         for impact_name, impact_df_name in self.impacts_map.items():
