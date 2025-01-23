@@ -124,3 +124,35 @@ def write_to_csv(df: pd.DataFrame, write_directory: Path,
         raise IOError("Trouble writing csv file") from io
     except Exception as e:
         raise Exception("An unknown error has occured") from e
+
+
+def write_to_pickle(df: pd.DataFrame, write_directory: Path,
+                    file_name: str):
+    """Write to pickle for general use.
+
+    This function allows you to name the file based on the name of the firm as well as a file suffix
+    to be appended to the end of the file name.
+
+    Args:
+        df (pd.DataFrame): DataFrame to write to pickle
+        write_directory (Path): Path location to write pickle to
+        file_suffix (str): Any additional information to append to the end of the file name
+
+    Raises:
+        PermissionError: Raised if function does not have permission to access file
+        IOError: Raised if file cannot be written
+        Exception: General exception just in case
+
+    """
+    try:
+        df.to_pickle(
+            write_directory.joinpath(
+                f'{file_name}.pkl'
+            )
+        )
+    except PermissionError as pe:
+        raise PermissionError('Try closing out the file you are trying to read') from pe
+    except IOError as io:
+        raise IOError("Trouble writing pickle file") from io
+    except Exception as e:
+        raise Exception("An unknown error has occured") from e

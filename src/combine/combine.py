@@ -51,7 +51,7 @@ def create_data_for_frontend():
     }
 
     for name, df in files_to_write.items():
-        gen.write_to_csv(
+        gen.write_to_pickle(
             df=df,
             write_directory=frontend_directory,
             file_name=name
