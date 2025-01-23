@@ -145,7 +145,8 @@ class ConstructionScenarioBuilder(ic.ConstructionImpactCalculator):
             right_on='Building Material_name',
             how='left',
         ).assign(
-            life_cycle_stage=self.lcs_map.get('constr')
+            life_cycle_stage=self.lcs_map.get('constr'),
+            scenario='Enhanced Waste Management'
         ).set_index('element_index')
 
         a5_impacts = (
@@ -207,7 +208,8 @@ class ReplacementScenarioBuilder(ic.ReplacementImpactCalculator):
             right_on='Assembly',
             how='left',
         ).assign(
-            life_cycle_stage=self.lcs_map.get('repl')
+            life_cycle_stage=self.lcs_map.get('repl'),
+            scenario='RICS Replacement Rates'
         ).set_index('element_index')
         temp_replacement_df['RSP'] = self.RSP
         temp_replacement_df['number_of_replacements'] = (
