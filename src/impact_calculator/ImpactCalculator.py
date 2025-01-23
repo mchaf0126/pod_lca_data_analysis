@@ -31,6 +31,7 @@ class ImpactCalculator:
             'trans': 'A4: Transportation',
             'constr': 'A5: Construction',
             'repl': 'B2-B5: Replacement',
+            'op': 'B6: Operational Energy',
             'eol': 'C2-C4: End-of-life'
         }
 
@@ -331,7 +332,7 @@ class OperationalImpactCalculator(ImpactCalculator):
         self.impacts['Assembly'] = 'Operational energy'
         self.impacts['Component'] = 'Operational energy'
         self.impacts['Building Material_name'] = 'NA'
-        self.impacts['life_cycle_stage'] = 'Operational energy: B6'
+        self.impacts['life_cycle_stage'] = self.lcs_map.get('op')
         self.impacts['Tally material'] = 'NA'
         self.impacts['Weight (kg)'] = 'NA'
         self.impacts['Data Source (Material Quantities)'] = 'TM'
