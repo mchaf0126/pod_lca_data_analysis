@@ -147,9 +147,6 @@ class TransportationImpactCalculator(ImpactCalculator):
             left_on='Tally material',
             right_on='Name_Tally Material',
             how='left'
-        ).drop(
-            "Name_Tally Material",
-            axis=1
         ).assign(
             life_cycle_stage="Transportation: A4"
         )
@@ -168,6 +165,10 @@ class TransportationImpactCalculator(ImpactCalculator):
                 * (temp_df['Weight (kg)'] / 1000)
                 * trans_emissions.loc[truck_emissions_name, col_name]
                 * (temp_df[truck_distance_column] * mi_to_km_conversion)
+            ).drop(
+                'Tally dist_truck',
+                "Name_Tally Material",
+                axis=1
             )
 
         self.impacts = temp_df
