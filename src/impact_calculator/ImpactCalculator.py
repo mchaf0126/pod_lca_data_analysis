@@ -338,11 +338,11 @@ class OperationalImpactCalculator(ImpactCalculator):
             self.impacts['Tally material'] = 'NA'
             self.impacts['Weight (kg)'] = 'NA'
             self.impacts['Data Source (Material Quantities)'] = 'TM'
-            self.impacts['Acidification Potential'] = 0.00660727113830882
-            self.impacts['Eutrophication Potential'] = 0.000397060971185102
-            self.impacts['Smog Formation Potential'] = 0.188614933003829
-            self.impacts['Ozone Depletion Potential'] = 3.90032454834503E-08
-            self.impacts['Global Warming Potential_fossil'] = 4.15677631350751
+            self.impacts['Acidification Potential'] = 18.0584769268007
+            self.impacts['Eutrophication Potential'] = 0.981366227539384
+            self.impacts['Smog Formation Potential'] = 437.7931995128
+            self.impacts['Ozone Depletion Potential'] = 0.0000872725537324552
+            self.impacts['Global Warming Potential_fossil'] = 9711.32204555366
             self.impacts['Global Warming Potential_biogenic'] = 0
             self.impacts['Global Warming Potential_luluc'] = 0
             self.impacts['Stored Biogenic Carbon'] = 0
