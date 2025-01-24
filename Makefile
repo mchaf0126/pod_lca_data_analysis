@@ -23,8 +23,13 @@ impacts:
 combine:
 	$(PYTHON_INTERPRETER) -m src.combine.combine
 
+## Create combined boms, and template models
+pb_scenarios:
+	$(PYTHON_INTERPRETER) -m src.p_scenario_builder.build_prebuilt_scenarios
+
 ## Create all public dataset files
 datasets:
 	$(PYTHON_INTERPRETER) -m src.tm_extractor.extract
 	$(PYTHON_INTERPRETER) -m src.impact_calculator.calc_impacts
+	$(PYTHON_INTERPRETER) -m src.p_scenario_builder.build_prebuilt_scenarios
 	$(PYTHON_INTERPRETER) -m src.combine.combine

@@ -343,6 +343,7 @@ class OperationalImpactCalculator(ImpactCalculator):
         self.impacts['Global Warming Potential_fossil'] = 6546607
         self.impacts['Global Warming Potential_biogenic'] = 0
         self.impacts['Global Warming Potential_luluc'] = 0
+        self.impacts['Stored Biogenic Carbon'] = 0
 
 
 @dataclass

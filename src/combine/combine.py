@@ -57,6 +57,13 @@ def create_data_for_frontend():
             file_name=name
         )
 
+    for name, df in files_to_write.items():
+        gen.write_to_csv(
+            df=df,
+            write_directory=frontend_directory,
+            file_name=name
+        )
+
 
 if __name__ == '__main__':
     create_data_for_frontend()
