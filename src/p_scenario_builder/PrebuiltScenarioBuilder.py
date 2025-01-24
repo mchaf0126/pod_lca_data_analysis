@@ -106,6 +106,8 @@ class TransportationScenarioBuilder(ic.TransportationImpactCalculator):
                 'Ozone Depletion Potential_truck',
                 'Ozone Depletion Potential_rail',
                 'Ozone Depletion Potential',
+                'Stored Biogenic Carbon_truck',
+                'Stored Biogenic Carbon_rail'
             ]
         )
         self.impacts = temp_df

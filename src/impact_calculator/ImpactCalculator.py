@@ -237,6 +237,7 @@ class ConstructionImpactCalculator(ImpactCalculator):
             right_index=True
         ).drop(
             columns=[
+                'enhanced wastage',
                 'wastage',
             ]
         ).reset_index()
