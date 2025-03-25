@@ -16,13 +16,14 @@ def calculate_impacts():
 
     for template_model in template_model_list:
         impact_directory = tm_directory.joinpath(f'{template_model}/impacts')
+        # order is important, replacement is last, construction is second last
         dict_of_impact_calculators = {
             'product': ic.ProductImpactCalculator(template_model),
             'transportation': ic.TransportationImpactCalculator(template_model),
+            'end-of-life': ic.EndOfLifeImpactCalculator(template_model),
+            'operational': ic.OperationalImpactCalculator(template_model),
             'construction': ic.ConstructionImpactCalculator(template_model),
             'replacement': ic.ReplacementImpactCalculator(template_model),
-            'operational': ic.OperationalImpactCalculator(template_model),
-            'end-of-life': ic.EndOfLifeImpactCalculator(template_model),
             # 'module D': ic.ModuleDImpactCalculator(template_model),
         }
 

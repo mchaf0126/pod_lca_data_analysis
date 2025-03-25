@@ -11,4 +11,5 @@ plotly
 dash
 nbformat
 mkdocs-material
+openpyxl
 pyyaml
