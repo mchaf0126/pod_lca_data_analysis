@@ -62,11 +62,10 @@ class TransportationScenarioBuilder(ic.TransportationImpactCalculator):
 
             # if distance is LESS THAN!! 500 mi, then return factor = 1.5
             temp_df.loc[temp_df[truck_distance_column] < 500, f'{name}_truck'] = (
-                1.5
-                * (temp_df['Weight (kg)'] / 1000)
+                (temp_df['Weight (kg)'] / 1000)
                 * trans_emissions.loc[truck_emissions_name, col_name]
                 * (temp_df[truck_distance_column] * mi_to_km_conversion)
-            )
+            ) * 1.5
 
             # emission = mass of product * emission factor * distance
             temp_df[f'{name}_rail'] = (
@@ -76,12 +75,11 @@ class TransportationScenarioBuilder(ic.TransportationImpactCalculator):
             )
 
             # if distance is LESS THAN!! 500 mi, then return factor = 1.5
-            temp_df.loc[temp_df[rail_distance_column] < 500, f'{name}_truck'] = (
-                1.5
-                * (temp_df['Weight (kg)'] / 1000)
+            temp_df.loc[temp_df[rail_distance_column] < 500, f'{name}_rail'] = (
+                (temp_df['Weight (kg)'] / 1000)
                 * trans_emissions.loc[rail_emissions_name, col_name]
                 * (temp_df[rail_distance_column] * mi_to_km_conversion)
-            )
+            ) * 1.5
 
             temp_df[name] = temp_df[f'{name}_truck'] + temp_df[f'{name}_rail']
 
