@@ -169,13 +169,15 @@ class TransportationImpactCalculator(ImpactCalculator):
                 * (temp_df[truck_distance_column] * mi_to_km_conversion)
             )
 
-            # if distance is greater than 500 mi, then return factor = 1.5
-            temp_df.loc[temp_df[truck_distance_column] > 500, name] = (
+            # if distance is LESS THAN!! than 500 mi, then return factor = 1.5
+            temp_df.loc[temp_df[truck_distance_column] < 500, name] = (
                 1.5
                 * (temp_df['Weight (kg)'] / 1000)
                 * trans_emissions.loc[truck_emissions_name, col_name]
                 * (temp_df[truck_distance_column] * mi_to_km_conversion)
             )
+            
+            ## TODO return factor of 2 for concrete values
 
         temp_df = temp_df.drop(
             columns=[
